@@ -1,12 +1,12 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-ietf-core-comi-latest
+docname: draft-ietf-core-comi-02
 cat: std
 pi:
   toc: 'yes'
   symrefs: 'yes'
-title: Lightweight Machine-to-machine Specificatione
+title: CoAP Management Interface
 abbrev: CoMI
 area: Applications
 wg: CoRE
