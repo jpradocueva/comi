@@ -6,7 +6,7 @@ cat: std
 pi:
   toc: 'yes'
   symrefs: 'yes'
-title: CoAP Management Interface
+title: Lightweight Machine-to-machine Specificatione
 abbrev: CoMI
 area: Applications
 wg: CoRE
