@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-ietf-core-comi-02
+docname: draft-oma-dm-lwm2mts-02
 cat: std
 pi:
   toc: 'yes'
@@ -75,29 +75,29 @@ informative:
 
 This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:
 
--   Simple resource model with the core set of objects and resources defined in this specification. The full list of registered objects can be found at \[OMNA\].
+*   Simple resource model with the core set of objects and resources defined in this specification. The full list of registered objects can be found at \[OMNA\].
 
--   Operations for creation, update, deletion, and retrieval of resources.
+*   Operations for creation, update, deletion, and retrieval of resources.
 
--   Asynchronous notifications of resource changes.
+*   Asynchronous notifications of resource changes.
 
--   Support for several serialization formats, namely TLV, JSON, Plain Text and binary data formats and the core set of LightweightM2M Objects.
+*   Support for several serialization formats, namely TLV, JSON, Plain Text and binary data formats and the core set of LightweightM2M Objects.
 
--   UDP and SMS transport support.
+*   UDP and SMS transport support.
 
--   Communication security based on the DTLS protocol supporting different types of credentials.
+*   Communication security based on the DTLS protocol supporting different types of credentials.
 
--   Queue Mode offers functionality for a LwM2M Client to inform the LwM2M Server that it may be disconnected for an extended period and when it becomes reachable again.
+*   Queue Mode offers functionality for a LwM2M Client to inform the LwM2M Server that it may be disconnected for an extended period and when it becomes reachable again.
 
--   Support for use of multiple LwM2M Servers.
+*   Support for use of multiple LwM2M Servers.
 
--   Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.
+*   Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.
 
 --- note_Note
 
 
 Discussion and suggestions for improvement are requested,
-and should be sent to core@ietf.org.
+and should be sent to omaemail@oma.com.
 
 --- middle
 
@@ -110,6 +110,13 @@ the large quantities of devices that are expected in
 future installations. Messages between devices need to be as small and
 infrequent as possible. The implementation
 complexity and runtime resources need to be as small as possible.
+
+This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings:
+
+*   CoAP over UDP
+*   CoAP over DTLS over UDP
+*   CoAP over SMS
+*   CoAP over DTLS over SMS
 
 This draft describes the CoAP Management Interface which uses CoAP methods
 to access structured data defined in YANG {{RFC7950}}. This draft is
