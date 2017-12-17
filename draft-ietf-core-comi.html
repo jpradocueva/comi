@@ -334,7 +334,7 @@ address {
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="J Jimenez, ., Ed. and P. van der Stok, Ed." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-comi-02" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-oma-dm-lwm2mts-02" />
   <meta name="dct.issued" scheme="ISO8601" content="2017-12-17" />
   <meta name="dct.abstract" content="This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:" />
   <meta name="description" content="This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:" />
@@ -372,7 +372,7 @@ address {
   </table>
 
   <p class="title">Lightweight Machine to Machine Technical Specification - Transport Bindings<br />
-  <span class="filename">draft-ietf-core-comi-02</span></p>
+  <span class="filename">draft-oma-dm-lwm2mts-02</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:</p>
@@ -390,7 +390,7 @@ address {
 <li>Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.</li>
 </ul>
 <h1><a>Note</a></h1>
-<p>Discussion and suggestions for improvement are requested, and should be sent to core@ietf.org.</p>
+<p>Discussion and suggestions for improvement are requested, and should be sent to omaemail@oma.com.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
@@ -517,10 +517,19 @@ address {
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
 <p id="rfc.section.1.p.1">The Constrained Application Protocol (CoAP) <a href="#RFC7252" class="xref">[RFC7252]</a> is designed for Machine to Machine (M2M) applications such as smart energy, smart city and building control.  Constrained devices need to be managed in an automatic fashion to handle the large quantities of devices that are expected in future installations. Messages between devices need to be as small and infrequent as possible. The implementation complexity and runtime resources need to be as small as possible.</p>
-<p id="rfc.section.1.p.2">This draft describes the CoAP Management Interface which uses CoAP methods to access structured data defined in YANG <a href="#RFC7950" class="xref">[RFC7950]</a>. This draft is complementary to <a href="#RFC8040" class="xref">[RFC8040]</a> which describes a REST-like interface called RESTCONF, which uses HTTP methods to access structured data defined in YANG.</p>
-<p id="rfc.section.1.p.3">The use of standardized data models specified in a standardized language, such as YANG, promotes interoperability between devices and applications from different manufacturers.</p>
-<p id="rfc.section.1.p.4">CoMI and RESTCONF are intended to work in a stateless client-server fashion.  They use a single round-trip to complete a single editing transaction, where NETCONF needs up to 10 round trips.</p>
-<p id="rfc.section.1.p.5">To promote small messges, CoMI uses a YANG to CBOR mapping <a href="#I-D.ietf-core-yang-cbor" class="xref">[I-D.ietf-core-yang-cbor]</a> and numeric identifiers <a href="#I-D.ietf-core-sid" class="xref">[I-D.ietf-core-sid]</a> to minimize CBOR payloads and URI length.</p>
+<p id="rfc.section.1.p.2">This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings:</p>
+<p></p>
+
+<ul>
+<li>CoAP over UDP</li>
+<li>CoAP over DTLS over UDP</li>
+<li>CoAP over SMS</li>
+<li>CoAP over DTLS over SMS</li>
+</ul>
+<p id="rfc.section.1.p.4">This draft describes the CoAP Management Interface which uses CoAP methods to access structured data defined in YANG <a href="#RFC7950" class="xref">[RFC7950]</a>. This draft is complementary to <a href="#RFC8040" class="xref">[RFC8040]</a> which describes a REST-like interface called RESTCONF, which uses HTTP methods to access structured data defined in YANG.</p>
+<p id="rfc.section.1.p.5">The use of standardized data models specified in a standardized language, such as YANG, promotes interoperability between devices and applications from different manufacturers.</p>
+<p id="rfc.section.1.p.6">CoMI and RESTCONF are intended to work in a stateless client-server fashion.  They use a single round-trip to complete a single editing transaction, where NETCONF needs up to 10 round trips.</p>
+<p id="rfc.section.1.p.7">To promote small messges, CoMI uses a YANG to CBOR mapping <a href="#I-D.ietf-core-yang-cbor" class="xref">[I-D.ietf-core-yang-cbor]</a> and numeric identifiers <a href="#I-D.ietf-core-sid" class="xref">[I-D.ietf-core-sid]</a> to minimize CBOR payloads and URI length.</p>
 <h1 id="rfc.section.1.1">
 <a href="#rfc.section.1.1">1.1.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
