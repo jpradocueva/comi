@@ -99,13 +99,13 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   4
      1.1.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   4
-   2.  CoMI Architecture . . . . . . . . . . . . . . . . . . . . . .   6
-     2.1.  Major differences between RESTCONF and CoMI . . . . . . .   7
-     2.2.  Compression of YANG identifiers . . . . . . . . . . . . .   8
-     2.3.  Instance identifier . . . . . . . . . . . . . . . . . . .   8
-     2.4.  CBOR ordered map schematic  . . . . . . . . . . . . . . .   9
-     2.5.  Content-Formats . . . . . . . . . . . . . . . . . . . . .   9
-   3.  Example syntax  . . . . . . . . . . . . . . . . . . . . . . .  12
+   2.  LwM2M Architecture  . . . . . . . . . . . . . . . . . . . . .   4
+     2.1.  Major differences between RESTCONF and CoMI . . . . . . .   5
+     2.2.  Compression of YANG identifiers . . . . . . . . . . . . .   6
+     2.3.  Instance identifier . . . . . . . . . . . . . . . . . . .   6
+     2.4.  CBOR ordered map schematic  . . . . . . . . . . . . . . .   7
+     2.5.  Content-Formats . . . . . . . . . . . . . . . . . . . . .   7
+   3.  Example syntax  . . . . . . . . . . . . . . . . . . . . . . .  10
 
 
 
@@ -114,52 +114,52 @@ Jimenez, et al.           Expires June 20, 2018                 [Page 2]
 Internet-Draft                  LWM2M TS                   December 2017
 
 
-   4.  CoAP Interface  . . . . . . . . . . . . . . . . . . . . . . .  13
-   5.  CoMI Collection Interface . . . . . . . . . . . . . . . . . .  14
-     5.1.  Using the 'k' Uri-Query option  . . . . . . . . . . . . .  15
-     5.2.  Data Retrieval  . . . . . . . . . . . . . . . . . . . . .  16
-       5.2.1.  Using the 'c' Uri-Query option  . . . . . . . . . . .  17
-       5.2.2.  Using the 'd' Uri-Query option  . . . . . . . . . . .  17
-       5.2.3.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  18
-       5.2.4.  FETCH . . . . . . . . . . . . . . . . . . . . . . . .  20
-     5.3.  Data Editing  . . . . . . . . . . . . . . . . . . . . . .  21
-       5.3.1.  Data Ordering . . . . . . . . . . . . . . . . . . . .  21
-       5.3.2.  POST  . . . . . . . . . . . . . . . . . . . . . . . .  21
-       5.3.3.  PUT . . . . . . . . . . . . . . . . . . . . . . . . .  22
-       5.3.4.  iPATCH  . . . . . . . . . . . . . . . . . . . . . . .  23
-       5.3.5.  DELETE  . . . . . . . . . . . . . . . . . . . . . . .  24
-     5.4.  Full datastore access . . . . . . . . . . . . . . . . . .  24
-       5.4.1.  Full datastore examples . . . . . . . . . . . . . . .  25
-     5.5.  Event stream  . . . . . . . . . . . . . . . . . . . . . .  26
-       5.5.1.  Notify Examples . . . . . . . . . . . . . . . . . . .  27
-     5.6.  RPC statements  . . . . . . . . . . . . . . . . . . . . .  27
-       5.6.1.  RPC Example . . . . . . . . . . . . . . . . . . . . .  28
-   6.  Access to MIB Data  . . . . . . . . . . . . . . . . . . . . .  28
-   7.  Use of Block  . . . . . . . . . . . . . . . . . . . . . . . .  30
-   8.  Resource Discovery  . . . . . . . . . . . . . . . . . . . . .  30
-   9.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  32
-   10. Security Considerations . . . . . . . . . . . . . . . . . . .  35
-   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  35
+   4.  CoAP Interface  . . . . . . . . . . . . . . . . . . . . . . .  11
+   5.  CoMI Collection Interface . . . . . . . . . . . . . . . . . .  12
+     5.1.  Using the 'k' Uri-Query option  . . . . . . . . . . . . .  13
+     5.2.  Data Retrieval  . . . . . . . . . . . . . . . . . . . . .  14
+       5.2.1.  Using the 'c' Uri-Query option  . . . . . . . . . . .  15
+       5.2.2.  Using the 'd' Uri-Query option  . . . . . . . . . . .  15
+       5.2.3.  GET . . . . . . . . . . . . . . . . . . . . . . . . .  16
+       5.2.4.  FETCH . . . . . . . . . . . . . . . . . . . . . . . .  18
+     5.3.  Data Editing  . . . . . . . . . . . . . . . . . . . . . .  19
+       5.3.1.  Data Ordering . . . . . . . . . . . . . . . . . . . .  19
+       5.3.2.  POST  . . . . . . . . . . . . . . . . . . . . . . . .  19
+       5.3.3.  PUT . . . . . . . . . . . . . . . . . . . . . . . . .  20
+       5.3.4.  iPATCH  . . . . . . . . . . . . . . . . . . . . . . .  21
+       5.3.5.  DELETE  . . . . . . . . . . . . . . . . . . . . . . .  22
+     5.4.  Full datastore access . . . . . . . . . . . . . . . . . .  22
+       5.4.1.  Full datastore examples . . . . . . . . . . . . . . .  23
+     5.5.  Event stream  . . . . . . . . . . . . . . . . . . . . . .  24
+       5.5.1.  Notify Examples . . . . . . . . . . . . . . . . . . .  25
+     5.6.  RPC statements  . . . . . . . . . . . . . . . . . . . . .  25
+       5.6.1.  RPC Example . . . . . . . . . . . . . . . . . . . . .  26
+   6.  Access to MIB Data  . . . . . . . . . . . . . . . . . . . . .  26
+   7.  Use of Block  . . . . . . . . . . . . . . . . . . . . . . . .  28
+   8.  Resource Discovery  . . . . . . . . . . . . . . . . . . . . .  28
+   9.  Error Handling  . . . . . . . . . . . . . . . . . . . . . . .  30
+   10. Security Considerations . . . . . . . . . . . . . . . . . . .  33
+     10.1.  DTLS Security  . . . . . . . . . . . . . . . . . . . . .  34
+   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  34
      11.1.  Resource Type (rt=) Link Target Attribute Values
-            Registry . . . . . . . . . . . . . . . . . . . . . . . .  35
-     11.2.  CoAP Content-Formats Registry  . . . . . . . . . . . . .  36
-     11.3.  Media Types Registry . . . . . . . . . . . . . . . . . .  36
+            Registry . . . . . . . . . . . . . . . . . . . . . . . .  34
+     11.2.  CoAP Content-Formats Registry  . . . . . . . . . . . . .  34
+     11.3.  Media Types Registry . . . . . . . . . . . . . . . . . .  35
      11.4.  Concise Binary Object Representation (CBOR) Tags
-            Registry . . . . . . . . . . . . . . . . . . . . . . . .  38
-   12. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  38
-   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  38
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  39
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  40
-   Appendix A.  ietf-comi YANG module  . . . . . . . . . . . . . . .  41
-   Appendix B.  ietf-comi .sid file  . . . . . . . . . . . . . . . .  47
-   Appendix C.  YANG example specifications  . . . . . . . . . . . .  50
-     C.1.  ietf-system . . . . . . . . . . . . . . . . . . . . . . .  50
-     C.2.  server list . . . . . . . . . . . . . . . . . . . . . . .  52
-     C.3.  interfaces  . . . . . . . . . . . . . . . . . . . . . . .  52
-     C.4.  Example-port  . . . . . . . . . . . . . . . . . . . . . .  53
-     C.5.  IP-MIB  . . . . . . . . . . . . . . . . . . . . . . . . .  54
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  56
-
+            Registry . . . . . . . . . . . . . . . . . . . . . . . .  36
+   12. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  37
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  37
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  37
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  38
+   Appendix A.  ietf-comi YANG module  . . . . . . . . . . . . . . .  39
+   Appendix B.  ietf-comi .sid file  . . . . . . . . . . . . . . . .  45
+   Appendix C.  YANG example specifications  . . . . . . . . . . . .  48
+     C.1.  ietf-system . . . . . . . . . . . . . . . . . . . . . . .  49
+     C.2.  server list . . . . . . . . . . . . . . . . . . . . . . .  50
+     C.3.  interfaces  . . . . . . . . . . . . . . . . . . . . . . .  51
+     C.4.  Example-port  . . . . . . . . . . . . . . . . . . . . . .  52
+     C.5.  IP-MIB  . . . . . . . . . . . . . . . . . . . . . . . . .  53
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  55
 
 
 
@@ -185,7 +185,7 @@ Internet-Draft                  LWM2M TS                   December 2017
    Server and with the LwM2M Server.  Figure 1 shows the relationships
    between the transport bindings and the messaging protocol.  In
    particular, this specification defines the following transport
-   bindings:
+   bindings.
 
    o  CoAP over UDP
 
@@ -195,29 +195,29 @@ Internet-Draft                  LWM2M TS                   December 2017
 
    o  CoAP over DTLS over SMS
 
-   This draft describes the CoAP Management Interface which uses CoAP
-   methods to access structured data defined in YANG [RFC7950].  This
-   draft is complementary to [RFC8040] which describes a REST-like
-   interface called RESTCONF, which uses HTTP methods to access
-   structured data defined in YANG.
-
-   The use of standardized data models specified in a standardized
-   language, such as YANG, promotes interoperability between devices and
-   applications from different manufacturers.
-
-   CoMI and RESTCONF are intended to work in a stateless client-server
-   fashion.  They use a single round-trip to complete a single editing
-   transaction, where NETCONF needs up to 10 round trips.
-
-   To promote small messges, CoMI uses a YANG to CBOR mapping
-   [I-D.ietf-core-yang-cbor] and numeric identifiers [I-D.ietf-core-sid]
-   to minimize CBOR payloads and URI length.
-
 1.1.  Terminology
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in [RFC2119].
+
+2.  LwM2M Architecture
+
+   A general architecture can be seen below Figure 1.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -226,131 +226,21 @@ Jimenez, et al.           Expires June 20, 2018                 [Page 4]
 Internet-Draft                  LWM2M TS                   December 2017
 
 
-   The following terms are defined in the YANG data modelling language
-   [RFC7950]: action, anydata, anyxml, client, configuration data,
-   container, data model, data node, datastore, identity, instance
-   identifier, key, key leaf, leaf, leaf-list, list, module, RPC, schema
-   node, server, state data, submodule.
+   +----------------------------------+  +---------+
+   |              LWM2M               |  | Objects |
+   +----------------------------------+  +---------+
+   +----------------------------------+
+   |              CoAP                |
+   +----------------------------------+
+   +----------------+ +---------------+
+   |      DTLS      | |    SMS        |
+   +----------------+ |               |
+   +-------+ +------+ |  on Smartcard |
+   |  UDP  | |SMS on| |               |
+   |       | |device| |               |
+   +-------+ +------+ +---------------+
 
-   The following term is defined in [I-D.ietf-core-yang-cbor]: YANG
-   schema item identifier (SID).
-
-   The following terms are defined in the CoAP protocol [RFC7252]:
-   Confirmable Message, Content-Format.
-
-   The following terms are defined in this document:
-
-   data node resource:  a CoAP resource that models a YANG data node.
-
-   datastore resource:  a CoAP resource that models a YANG datastore.
-
-   event stream resource:  a CoAP resource used by clients to observe
-      YANG notifications.
-
-   target resource:  the resource that is associated with a particular
-      CoAP request, identified by the request URI.
-
-   data node instance:  An instance of a data node specified in a YANG
-      module and stored in the server.
-
-   notification instance:  An instance of a schema node of type
-      notification, specified in a YANG module implemented by the
-      server.  The instance is generated in the server at the occurrence
-      of the corresponding event and reported by an event stream.
-
-   list instance identifier:  Handle used to identify a YANG data node
-      that is an instance of a YANG "list" specified with the values of
-      the key leaves of the list.
-
-   single instance identifier:  Handle used to identify a specific data
-      node which can be instantiated only once.  This includes data
-      nodes defined at the root of a YANG module or data nodes defined
-      within a container.  This excludes data nodes defined within a
-      list or any children of these data nodes.
-
-   instance identifier:  List instance identifier or single instance
-      identifier.
-
-   data node value:  The value assigned to a data node instance.  Data
-      node values are serialized into the payload according to the rules
-      defined in section 4 of [I-D.ietf-core-yang-cbor].
-
-
-
-Jimenez, et al.           Expires June 20, 2018                 [Page 5]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
-2.  CoMI Architecture
-
-   This section describes the CoMI architecture to use CoAP for reading
-   and modifying the content of datastore(s) used for the management of
-   the instrumented node.
-
-   +------------------------------------------------------------+
-   |                     SMIv2 specification (2)                |
-   +------------------------------------------------------------+
-                                  |
-                                  V
-   +------------------------------------------------------------+
-   |                     YANG specification  (1)                |
-   +------------------------------------------------------------+
-           |                                          |
-   Client   V                               Server     V
-   +----------------+                       +-------------------+
-   | Request        |--> CoAP request(3) -->| Indication        |
-   | Confirm        |<-- CoAP response(3)<--| Response      (4) |
-   |                |                       |                   |
-   |                |<==== Security (7) ===>|+-----------------+|
-   +----------------+                       || Datastore (5)   ||
-                                            |+-----------------+|
-                                            |+-----------------+|
-                                            || Event stream (6)||
-                                            |+-----------------+|
-                                            +-------------------+
-
-                   Figure 1: Abstract CoMI architecture
-
-   Figure 1 is a high-level representation of the main elements of the
-   CoMI management architecture.  The different numbered components of
-   Figure 1 are discussed according to component number.
-
-   (1) YANG specification:  contains a set of named and versioned
-      modules.
-
-   (2) SMIv2 specification:  A named module specifies a set of variables
-      and "conceptual tables".  There is an algorithm to translate SMIv2
-      specifications to YANG specifications.
-
-   (3) CoAP request/response messages:  The CoMI client sends request
-      messages to and receives response messages from the CoMI server.
-
-   (4) Request, Indication, Response, Confirm:  The processes performed
-      by the CoMI clients and servers.
-
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                 [Page 6]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
-   (5) Datastore:  A resource used to access configuration data, state
-      data, RPCs and actions.  A CoMI server may support multiple
-      datastores to support more complex operations such as
-      configuration rollback, scheduled update.
-
-   (6) Event stream:  An observable resource used to get real time
-      notifications.  A CoMI server may support multiple Event streams
-      serving different purposes such as normal monitoring, diagnostic,
-      syslog, security monitoring.
-
-   (7) Security:  The server MUST prevent unauthorized users from
-      reading or writing any CoMI resources.  CoMI relies on security
-      protocols such as DTLS [RFC6347] to secure CoAP communication.
+             Figure 1: The Protocol Stack of the LwM2M Enabler
 
 2.1.  Major differences between RESTCONF and CoMI
 
@@ -387,9 +277,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-
-
-Jimenez, et al.           Expires June 20, 2018                 [Page 7]
+Jimenez, et al.           Expires June 20, 2018                 [Page 5]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -445,7 +333,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                 [Page 8]
+Jimenez, et al.           Expires June 20, 2018                 [Page 6]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -501,7 +389,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                 [Page 9]
+Jimenez, et al.           Expires June 20, 2018                 [Page 7]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -557,7 +445,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 10]
+Jimenez, et al.           Expires June 20, 2018                 [Page 8]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -613,7 +501,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 11]
+Jimenez, et al.           Expires June 20, 2018                 [Page 9]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -669,7 +557,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 12]
+Jimenez, et al.           Expires June 20, 2018                [Page 10]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -725,7 +613,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 13]
+Jimenez, et al.           Expires June 20, 2018                [Page 11]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -781,7 +669,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 14]
+Jimenez, et al.           Expires June 20, 2018                [Page 12]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -837,7 +725,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 15]
+Jimenez, et al.           Expires June 20, 2018                [Page 13]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -893,7 +781,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 16]
+Jimenez, et al.           Expires June 20, 2018                [Page 14]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -949,7 +837,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 17]
+Jimenez, et al.           Expires June 20, 2018                [Page 15]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1005,7 +893,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 18]
+Jimenez, et al.           Expires June 20, 2018                [Page 16]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1061,7 +949,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 19]
+Jimenez, et al.           Expires June 20, 2018                [Page 17]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1117,7 +1005,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 20]
+Jimenez, et al.           Expires June 20, 2018                [Page 18]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1173,7 +1061,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 21]
+Jimenez, et al.           Expires June 20, 2018                [Page 19]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1229,7 +1117,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 22]
+Jimenez, et al.           Expires June 20, 2018                [Page 20]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1285,7 +1173,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 23]
+Jimenez, et al.           Expires June 20, 2018                [Page 21]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1341,7 +1229,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 24]
+Jimenez, et al.           Expires June 20, 2018                [Page 22]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1397,7 +1285,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 25]
+Jimenez, et al.           Expires June 20, 2018                [Page 23]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1453,7 +1341,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 26]
+Jimenez, et al.           Expires June 20, 2018                [Page 24]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1509,7 +1397,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 27]
+Jimenez, et al.           Expires June 20, 2018                [Page 25]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1565,7 +1453,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 28]
+Jimenez, et al.           Expires June 20, 2018                [Page 26]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1621,7 +1509,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 29]
+Jimenez, et al.           Expires June 20, 2018                [Page 27]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1677,7 +1565,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 30]
+Jimenez, et al.           Expires June 20, 2018                [Page 28]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1733,7 +1621,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 31]
+Jimenez, et al.           Expires June 20, 2018                [Page 29]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1789,7 +1677,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 32]
+Jimenez, et al.           Expires June 20, 2018                [Page 30]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1845,7 +1733,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 33]
+Jimenez, et al.           Expires June 20, 2018                [Page 31]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1901,7 +1789,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 34]
+Jimenez, et al.           Expires June 20, 2018                [Page 32]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1928,23 +1816,46 @@ Internet-Draft                  LWM2M TS                   December 2017
 10.  Security Considerations
 
    For secure network management, it is important to restrict access to
-   configuration variables only to authorized parties.  CoMI re-uses the
-   security mechanisms already available to CoAP, this includes DTLS
+   configuration variables only to authorized parties.  LwM2M re-uses
+   the security mechanisms already available to CoAP, this includes DTLS
    [RFC6347] for protected access to resources, as well suitable
    authentication and authorization mechanisms.
 
-   Among the security decisions that need to be made are selecting
-   security modes and encryption mechanisms (see [RFC7252]).  This
-   requires a trade-off, as the NoKey mode gives no protection at all,
-   but is easy to implement, whereas the X.509 mode is quite secure, but
-   may be too complex for constrained devices.
+   The LwM2M protocol supports various transport bindings and
+   credentials for securely communicating with LwM2M Servers.  This
+   configuration information can be provisioned during manufacturing or
+   through the use of the bootstrap mechanism.
 
-   In addition, mechanisms for authentication and authorization may need
-   to be selected.
+   LwM2M supports three different types of credentials, namely
 
-   CoMI avoids defining new security mechanisms as much as possible.
-   However, some adaptations may still be required, to cater for CoMI's
-   specific requirements.
+   o  Certificates.
+
+   o  Raw public keys.
+
+   o  Pre-shared secrets.
+
+   Since these credential types offer different properties the LwM2M
+   specification offers support for all of them.  [RFC7925] provides the
+   necessary details about the use of each of these credentials with
+   DTLS.
+
+   The LwM2M protocol specifies that authorization of LwM2M Servers to
+   access Object Instances and Resources within the LwM2M Client is
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 33]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
+   provided through Access Control Object Instances within the LwM2M
+   Client.
+
+10.1.  DTLS Security
+
+   blablabla
 
 11.  IANA Considerations
 
@@ -1953,14 +1864,6 @@ Internet-Draft                  LWM2M TS                   December 2017
    This document adds the following resource type to the "Resource Type
    (rt=) Link Target Attribute Values", within the "Constrained RESTful
    Environments (CoRE) Parameters" registry.
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 35]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
 
    +--------------------+---------------------+-----------+
    | Value              | Description         | Reference |
@@ -1983,6 +1886,26 @@ Internet-Draft                  LWM2M TS                   December 2017
    Formats", within the "Constrained RESTful Environments (CoRE)
    Parameters" registry.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 34]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
    +---------------------------------+-------------+-----------+
    | Media Type                      | Excoding ID | Reference |
    +---------------------------------+-------------+-----------+
@@ -2004,19 +1927,6 @@ Internet-Draft                  LWM2M TS                   December 2017
 
    This document adds the following media types to the "Media Types"
    registry.
-
-
-
-
-
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 36]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
 
    +---------------------+---------------------------------+-----------+
    | Name                | Template                        | Reference |
@@ -2045,6 +1955,13 @@ Internet-Draft                  LWM2M TS                   December 2017
    o  Security considerations: See the Security Considerations section
       of RFC XXXX
 
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 35]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
    o  Interoperability considerations: N/A
 
    o  Published specification: RFC XXXX
@@ -2065,14 +1982,6 @@ Internet-Draft                  LWM2M TS                   December 2017
 
    o  Person & email address to contact for further information:
       iesg&ietf.org
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 37]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
 
    o  Intended usage: COMMON
 
@@ -2101,6 +2010,14 @@ Internet-Draft                  LWM2M TS                   December 2017
    // RFC Ed.: replace xxx by the assigned Tag and remove this note.  //
    RFC Ed.: replace RFC XXXX with this RFC number and remove this note.
 
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 36]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
 12.  Acknowledgements
 
    We are very grateful to Bert Greevenbosch who was one of the original
@@ -2117,18 +2034,6 @@ Internet-Draft                  LWM2M TS                   December 2017
    Tschofenig, Michael Verschoor, and Thomas Watteyne.
 
 13.  References
-
-
-
-
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 38]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
 
 13.1.  Normative References
 
@@ -2161,6 +2066,14 @@ Internet-Draft                  LWM2M TS                   December 2017
               Notifications", RFC 5277, DOI 10.17487/RFC5277, July 2008,
               <https://www.rfc-editor.org/info/rfc5277>.
 
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 37]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
    [RFC6243]  Bierman, A. and B. Lengyel, "With-defaults Capability for
               NETCONF", RFC 6243, DOI 10.17487/RFC6243, June 2011,
               <https://www.rfc-editor.org/info/rfc6243>.
@@ -2178,13 +2091,6 @@ Internet-Draft                  LWM2M TS                   December 2017
               Application Protocol (CoAP)", RFC 7641,
               DOI 10.17487/RFC7641, September 2015,
               <https://www.rfc-editor.org/info/rfc7641>.
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 39]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
 
    [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
               RFC 7950, DOI 10.17487/RFC7950, August 2016,
@@ -2216,6 +2122,14 @@ Internet-Draft                  LWM2M TS                   December 2017
               YUMAworks, "NETCONF Central: library of YANG modules",
               Web http://www.netconfcentral.org/modulelist.
 
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 38]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
    [RFC4293]  Routhier, S., Ed., "Management Information Base for the
               Internet Protocol (IP)", RFC 4293, DOI 10.17487/RFC4293,
               April 2006, <https://www.rfc-editor.org/info/rfc4293>.
@@ -2232,16 +2146,6 @@ Internet-Draft                  LWM2M TS                   December 2017
               Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
               2014, <https://www.rfc-editor.org/info/rfc7159>.
 
-
-
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 40]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
    [RFC7223]  Bjorklund, M., "A YANG Data Model for Interface
               Management", RFC 7223, DOI 10.17487/RFC7223, May 2014,
               <https://www.rfc-editor.org/info/rfc7223>.
@@ -2249,6 +2153,12 @@ Internet-Draft                  LWM2M TS                   December 2017
    [RFC7317]  Bierman, A. and M. Bjorklund, "A YANG Data Model for
               System Management", RFC 7317, DOI 10.17487/RFC7317, August
               2014, <https://www.rfc-editor.org/info/rfc7317>.
+
+   [RFC7925]  Tschofenig, H., Ed. and T. Fossati, "Transport Layer
+              Security (TLS) / Datagram Transport Layer Security (DTLS)
+              Profiles for the Internet of Things", RFC 7925,
+              DOI 10.17487/RFC7925, July 2016,
+              <https://www.rfc-editor.org/info/rfc7925>.
 
    [XML]      W3C, "Extensible Markup Language (XML)",
               Web http://www.w3.org/xml.
@@ -2268,6 +2178,14 @@ Appendix A.  ietf-comi YANG module
      prefix comi;
 
      organization
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 39]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
        "IETF Core Working Group";
 
      contact
@@ -2290,14 +2208,6 @@ Appendix A.  ietf-comi YANG module
      revision 2017-07-01 {
         description
          "Initial revision.";
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 41]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
        reference
          "[I-D.ietf-core-comi] CoAP Management Interface";
      }
@@ -2324,6 +2234,14 @@ Internet-Draft                  LWM2M TS                   December 2017
           and not encoded.";
        reference
          "[RFC 7049] Concise Binary Object Representation (CBOR)";
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 40]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
      }
 
      identity error-tag {
@@ -2346,14 +2264,6 @@ Internet-Draft                  LWM2M TS                   December 2017
           invalid CBOR datatype or if the 'range', 'length',
           'pattern' or 'require-instance' constrain is not
           fulfilled.";
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 42]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
      }
 
      identity missing-element {
@@ -2380,6 +2290,14 @@ Internet-Draft                  LWM2M TS                   December 2017
      identity bad-element {
        base error-tag;
        description
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 41]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
          "Returned by the CoMI server when the CoMI client tries to
           create data nodes for more than one case in a choice.";
      }
@@ -2402,12 +2320,6 @@ Internet-Draft                  LWM2M TS                   December 2017
        description
          "Base identity for error-app-tag.";
      }
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 43]
-
-Internet-Draft                  LWM2M TS                   December 2017
 
 
      identity malformed-message {
@@ -2434,6 +2346,14 @@ Internet-Draft                  LWM2M TS                   December 2017
           'max-elements' constraint of a list or leaf-list fails.";
      }
 
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 42]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
      identity too-few-elements {
        base error-app-tag;
        description
@@ -2458,14 +2378,6 @@ Internet-Draft                  LWM2M TS                   December 2017
      identity invalid-datatype {
        base error-app-tag;
        description
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 44]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
          "Returned by the CoMI server when CBOR encoding is
           incorect or when the value encoded is incompatible with
           the YANG Built-In type. (e.g. value greater than 127
@@ -2490,6 +2402,14 @@ Internet-Draft                  LWM2M TS                   December 2017
        base error-app-tag;
        description
          "Returned by the CoMI server when the validation of the
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 43]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
           'pattern' property fails.";
      }
 
@@ -2514,14 +2434,6 @@ Internet-Draft                  LWM2M TS                   December 2017
        base error-app-tag;
        description
          "Returned by the CoMI server when a leaf of type
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 45]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
           'instance-identifier' or 'leafref' marked with
           require-instance set to 'true' refers to an instance
           that does not exist.";
@@ -2546,6 +2458,14 @@ Internet-Draft                  LWM2M TS                   December 2017
          }
          mandatory true;
          description
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 44]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
            "The enumerated error-tag.";
        }
 
@@ -2570,14 +2490,6 @@ Internet-Draft                  LWM2M TS                   December 2017
            "A message describing the error.";
        }
      }
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 46]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
    }
    <CODE ENDS>
 
@@ -2602,6 +2514,14 @@ Appendix B.  ietf-comi .sid file
          "namespace": "identity",
          "identifier": "bad-element",
          "sid": 1001
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 45]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
        },
        {
          "namespace": "identity",
@@ -2626,14 +2546,6 @@ Appendix B.  ietf-comi .sid file
        {
          "namespace": "identity",
          "identifier": "error-app-tag",
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 47]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
          "sid": 1006
        },
        {
@@ -2658,6 +2570,14 @@ Internet-Draft                  LWM2M TS                   December 2017
        },
        {
          "namespace": "identity",
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 46]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
          "identifier": "invalid-value",
          "sid": 1011
        },
@@ -2682,14 +2602,6 @@ Internet-Draft                  LWM2M TS                   December 2017
          "sid": 1015
        },
        {
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 48]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
          "namespace": "identity",
          "identifier": "missing-key",
          "sid": 1016
@@ -2714,6 +2626,14 @@ Internet-Draft                  LWM2M TS                   December 2017
          "identifier": "pattern-test-failed",
          "sid": 1020
        },
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 47]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
        {
          "namespace": "identity",
          "identifier": "too-few-elements",
@@ -2738,14 +2658,6 @@ Internet-Draft                  LWM2M TS                   December 2017
          "namespace": "data",
          "identifier": "/ietf-comi:error/error-app-tag",
          "sid": 1025
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 49]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
        },
        {
          "namespace": "data",
@@ -2769,6 +2681,15 @@ Appendix C.  YANG example specifications
 
    This appendix shows five YANG example specifications taken over from
    as many existing YANG modules.  The YANG modules are available from
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 48]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
    [netconfcentral].  Each YANG item identifier is accompanied by its
    SID shown after the "//" comment sign.
 
@@ -2794,14 +2715,6 @@ C.1.  ietf-system
          }
        }
        container ntp {                    // SID 1754
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 50]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
          leaf enabled {                   // SID 1755
            type boolean;
            default true;
@@ -2825,6 +2738,14 @@ Internet-Draft                  LWM2M TS                   December 2017
            }
            leaf association-type {        // SID 1757
              type enumeration {
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 49]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
                enum server {
                }
                enum peer {
@@ -2850,14 +2771,6 @@ Internet-Draft                  LWM2M TS                   December 2017
          leaf boot-datetime {             // SID 1722
            type yang:date-and-time;
          }
-
-
-
-Jimenez, et al.           Expires June 20, 2018                [Page 51]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
        }
      }
    }
@@ -2865,6 +2778,29 @@ Internet-Draft                  LWM2M TS                   December 2017
 C.2.  server list
 
    Taken over from [RFC7950] section 7.15.3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 50]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
 
    module example-server-farm {
      yang-version 1.1;
@@ -2909,7 +2845,15 @@ C.3.  interfaces
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 52]
+
+
+
+
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 51]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2965,7 +2909,7 @@ C.4.  Example-port
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 53]
+Jimenez, et al.           Expires June 20, 2018                [Page 52]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3021,7 +2965,7 @@ C.5.  IP-MIB
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 54]
+Jimenez, et al.           Expires June 20, 2018                [Page 53]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3077,7 +3021,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 55]
+Jimenez, et al.           Expires June 20, 2018                [Page 54]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3133,4 +3077,4 @@ Authors' Addresses
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 56]
+Jimenez, et al.           Expires June 20, 2018                [Page 55]

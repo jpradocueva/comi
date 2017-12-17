@@ -278,7 +278,7 @@ address {
   <link href="#rfc.toc" rel="Contents">
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
 <link href="#rfc.section.1.1" rel="Chapter" title="1.1 Terminology">
-<link href="#rfc.section.2" rel="Chapter" title="2 CoMI Architecture">
+<link href="#rfc.section.2" rel="Chapter" title="2 LwM2M Architecture">
 <link href="#rfc.section.2.1" rel="Chapter" title="2.1 Major differences between RESTCONF and CoMI">
 <link href="#rfc.section.2.2" rel="Chapter" title="2.2 Compression of YANG identifiers">
 <link href="#rfc.section.2.3" rel="Chapter" title="2.3 Instance identifier">
@@ -310,6 +310,7 @@ address {
 <link href="#rfc.section.8" rel="Chapter" title="8 Resource Discovery">
 <link href="#rfc.section.9" rel="Chapter" title="9 Error Handling">
 <link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
+<link href="#rfc.section.10.1" rel="Chapter" title="10.1 DTLS Security">
 <link href="#rfc.section.11" rel="Chapter" title="11 IANA Considerations">
 <link href="#rfc.section.11.1" rel="Chapter" title="11.1 Resource Type (rt=) Link Target Attribute Values Registry">
 <link href="#rfc.section.11.2" rel="Chapter" title="11.2 CoAP Content-Formats Registry">
@@ -417,7 +418,7 @@ address {
 </li>
 <ul><li>1.1.   <a href="#rfc.section.1.1">Terminology</a>
 </li>
-</ul><li>2.   <a href="#rfc.section.2">CoMI Architecture</a>
+</ul><li>2.   <a href="#rfc.section.2">LwM2M Architecture</a>
 </li>
 <ul><li>2.1.   <a href="#rfc.section.2.1">Major differences between RESTCONF and CoMI</a>
 </li>
@@ -481,7 +482,9 @@ address {
 </li>
 <li>10.   <a href="#rfc.section.10">Security Considerations</a>
 </li>
-<li>11.   <a href="#rfc.section.11">IANA Considerations</a>
+<ul><li>10.1.   <a href="#rfc.section.10.1">DTLS Security</a>
+</li>
+</ul><li>11.   <a href="#rfc.section.11">IANA Considerations</a>
 </li>
 <ul><li>11.1.   <a href="#rfc.section.11.1">Resource Type (rt=) Link Target Attribute Values Registry</a>
 </li>
@@ -525,7 +528,7 @@ address {
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
 <p id="rfc.section.1.p.1">The Constrained Application Protocol (CoAP) <a href="#RFC7252" class="xref">[RFC7252]</a> is designed for Machine to Machine (M2M) applications such as smart energy, smart city and building control.  Constrained devices need to be managed in an automatic fashion to handle the large quantities of devices that are expected in future installations. Messages between devices need to be as small and infrequent as possible. The implementation complexity and runtime resources need to be as small as possible.</p>
-<p id="rfc.section.1.p.2">This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings:</p>
+<p id="rfc.section.1.p.2">This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings.</p>
 <p></p>
 
 <ul>
@@ -534,91 +537,32 @@ address {
 <li>CoAP over SMS</li>
 <li>CoAP over DTLS over SMS</li>
 </ul>
-<p id="rfc.section.1.p.4">This draft describes the CoAP Management Interface which uses CoAP methods to access structured data defined in YANG <a href="#RFC7950" class="xref">[RFC7950]</a>. This draft is complementary to <a href="#RFC8040" class="xref">[RFC8040]</a> which describes a REST-like interface called RESTCONF, which uses HTTP methods to access structured data defined in YANG.</p>
-<p id="rfc.section.1.p.5">The use of standardized data models specified in a standardized language, such as YANG, promotes interoperability between devices and applications from different manufacturers.</p>
-<p id="rfc.section.1.p.6">CoMI and RESTCONF are intended to work in a stateless client-server fashion.  They use a single round-trip to complete a single editing transaction, where NETCONF needs up to 10 round trips.</p>
-<p id="rfc.section.1.p.7">To promote small messges, CoMI uses a YANG to CBOR mapping <a href="#I-D.ietf-core-yang-cbor" class="xref">[I-D.ietf-core-yang-cbor]</a> and numeric identifiers <a href="#I-D.ietf-core-sid" class="xref">[I-D.ietf-core-sid]</a> to minimize CBOR payloads and URI length.</p>
 <h1 id="rfc.section.1.1">
 <a href="#rfc.section.1.1">1.1.</a> <a href="#terminology" id="terminology">Terminology</a>
 </h1>
 <p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119" class="xref">[RFC2119]</a>.</p>
-<p id="rfc.section.1.1.p.2">The following terms are defined in the YANG data modelling language <a href="#RFC7950" class="xref">[RFC7950]</a>: action, anydata, anyxml, client, configuration data, container, data model, data node, datastore, identity, instance identifier, key, key leaf, leaf, leaf-list, list, module, RPC, schema node, server, state data, submodule.</p>
-<p id="rfc.section.1.1.p.3">The following term is defined in <a href="#I-D.ietf-core-yang-cbor" class="xref">[I-D.ietf-core-yang-cbor]</a>: YANG schema item identifier (SID).</p>
-<p id="rfc.section.1.1.p.4">The following terms are defined in the CoAP protocol <a href="#RFC7252" class="xref">[RFC7252]</a>: Confirmable Message, Content-Format.</p>
-<p id="rfc.section.1.1.p.5">The following terms are defined in this document:</p>
-<p></p>
-
-<dl>
-<dt>data node resource:</dt>
-<dd style="margin-left: 8">a CoAP resource that models a YANG data node.</dd>
-<dt>datastore resource:</dt>
-<dd style="margin-left: 8">a CoAP resource that models a YANG datastore.</dd>
-<dt>event stream resource:</dt>
-<dd style="margin-left: 8">a CoAP resource used by clients to observe YANG notifications.</dd>
-<dt>target resource:</dt>
-<dd style="margin-left: 8">the resource that is associated with a particular CoAP request, identified by the request URI.</dd>
-<dt>data node instance:</dt>
-<dd style="margin-left: 8">An instance of a data node specified in a YANG module and stored in the server.</dd>
-<dt>notification instance:</dt>
-<dd style="margin-left: 8">An instance of a schema node of type notification, specified in a YANG module implemented by the server. The instance is generated in the server at the occurrence of the corresponding event and reported by an event stream.</dd>
-<dt>list instance identifier:</dt>
-<dd style="margin-left: 8">Handle used to identify a YANG data node that is an instance of a YANG &#8220;list&#8221; specified with the values of the key leaves of the list.</dd>
-<dt>single instance identifier:</dt>
-<dd style="margin-left: 8">Handle used to identify a specific data node which can be instantiated only once. This includes data nodes defined at the root of a YANG module or data nodes defined within a container. This excludes data nodes defined within a list or any children of these data nodes.</dd>
-<dt>instance identifier:</dt>
-<dd style="margin-left: 8">List instance identifier or single instance identifier.</dd>
-<dt>data node value:</dt>
-<dd style="margin-left: 8">The value assigned to a data node instance. Data node values are serialized into the payload according to the rules defined in section 4 of <a href="#I-D.ietf-core-yang-cbor" class="xref">[I-D.ietf-core-yang-cbor]</a>.</dd>
-</dl>
 <h1 id="rfc.section.2">
-<a href="#rfc.section.2">2.</a> <a href="#comi-architecture" id="comi-architecture">CoMI Architecture</a>
+<a href="#rfc.section.2">2.</a> <a href="#lwm2m-architecture" id="lwm2m-architecture">LwM2M Architecture</a>
 </h1>
-<p id="rfc.section.2.p.1">This section describes the CoMI architecture to use CoAP for reading and modifying the content of datastore(s) used for the management of the instrumented node.</p>
+<p id="rfc.section.2.p.1">A general architecture can be seen below <a href="#archit" class="xref">Figure 1</a>.</p>
 <div id="rfc.figure.1"></div>
 <div id="archit"></div>
 <pre>
-+------------------------------------------------------------+
-|                     SMIv2 specification (2)                |
-+------------------------------------------------------------+
-                               |
-                               V
-+------------------------------------------------------------+
-|                     YANG specification  (1)                |
-+------------------------------------------------------------+
-        |                                          |
-Client   V                               Server     V       
-+----------------+                       +-------------------+
-| Request        |--&gt; CoAP request(3) --&gt;| Indication        |
-| Confirm        |&lt;-- CoAP response(3)&lt;--| Response      (4) |
-|                |                       |                   |
-|                |&lt;==== Security (7) ===&gt;|+-----------------+|
-+----------------+                       || Datastore (5)   ||
-                                         |+-----------------+|
-                                         |+-----------------+|
-                                         || Event stream (6)||
-                                         |+-----------------+|
-                                         +-------------------+
++----------------------------------+  +---------+
+|              LWM2M               |  | Objects |
++----------------------------------+  +---------+
++----------------------------------+
+|              CoAP                |
++----------------------------------+
++----------------+ +---------------+
+|      DTLS      | |    SMS        |
++----------------+ |               |
++-------+ +------+ |  on Smartcard |
+|  UDP  | |SMS on| |               |
+|       | |device| |               |
++-------+ +------+ +---------------+
 </pre>
-<p class="figure">Figure 1: Abstract CoMI architecture</p>
-<p><a href="#archit" class="xref">Figure 1</a> is a high-level representation of the main elements of the CoMI management architecture. The different numbered components of <a href="#archit" class="xref">Figure 1</a> are discussed according to component number.</p>
-<p></p>
-
-<dl>
-<dt>(1) YANG specification:</dt>
-<dd style="margin-left: 8">contains a set of named and versioned modules.</dd>
-<dt>(2) SMIv2 specification:</dt>
-<dd style="margin-left: 8">A named module specifies a set of variables and &#8220;conceptual tables&#8221;. There is an algorithm to translate SMIv2 specifications to YANG specifications.</dd>
-<dt>(3) CoAP request/response messages:</dt>
-<dd style="margin-left: 8">The CoMI client sends request messages to and receives response messages from the CoMI server.</dd>
-<dt>(4) Request, Indication, Response, Confirm:</dt>
-<dd style="margin-left: 8">The processes performed by the CoMI clients and servers.</dd>
-<dt>(5) Datastore:</dt>
-<dd style="margin-left: 8">A resource used to access configuration data, state data, RPCs and actions. A CoMI server may support multiple datastores to support more complex operations such as configuration rollback, scheduled update.</dd>
-<dt>(6) Event stream:</dt>
-<dd style="margin-left: 8">An observable resource used to get real time notifications. A CoMI server may support multiple Event streams serving different purposes such as normal monitoring, diagnostic, syslog, security monitoring.</dd>
-<dt>(7) Security:</dt>
-<dd style="margin-left: 8">The server MUST prevent unauthorized users from reading or writing any CoMI resources. CoMI relies on security protocols such as DTLS <a href="#RFC6347" class="xref">[RFC6347]</a> to secure CoAP communication.</dd>
-</dl>
+<p class="figure">Figure 1: The Protocol Stack of the LwM2M Enabler</p>
 <h1 id="rfc.section.2.1">
 <a href="#rfc.section.2.1">2.1.</a> <a href="#major-differences" id="major-differences">Major differences between RESTCONF and CoMI</a>
 </h1>
@@ -1586,10 +1530,22 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 <h1 id="rfc.section.10">
 <a href="#rfc.section.10">10.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
 </h1>
-<p id="rfc.section.10.p.1">For secure network management, it is important to restrict access to configuration variables only to authorized parties. CoMI re-uses the security mechanisms already available to CoAP, this includes DTLS <a href="#RFC6347" class="xref">[RFC6347]</a> for protected access to resources, as well suitable authentication and authorization mechanisms.</p>
-<p id="rfc.section.10.p.2">Among the security decisions that need to be made are selecting security modes and encryption mechanisms (see <a href="#RFC7252" class="xref">[RFC7252]</a>). This requires a trade-off, as the NoKey mode gives no protection at all, but is easy to implement, whereas the X.509 mode is quite secure, but may be too complex for constrained devices.</p>
-<p id="rfc.section.10.p.3">In addition, mechanisms for authentication and authorization may need to be selected.</p>
-<p id="rfc.section.10.p.4">CoMI avoids defining new security mechanisms as much as possible.  However, some adaptations may still be required, to cater for CoMI&#8217;s specific requirements.</p>
+<p id="rfc.section.10.p.1">For secure network management, it is important to restrict access to configuration variables only to authorized parties. LwM2M re-uses the security mechanisms already available to CoAP, this includes DTLS <a href="#RFC6347" class="xref">[RFC6347]</a> for protected access to resources, as well suitable authentication and authorization mechanisms.</p>
+<p id="rfc.section.10.p.2">The LwM2M protocol supports various transport bindings and credentials for securely communicating with LwM2M Servers. This configuration information can be provisioned during manufacturing or through the use of the bootstrap mechanism.</p>
+<p id="rfc.section.10.p.3">LwM2M supports three different types of credentials, namely</p>
+<p></p>
+
+<ul>
+<li>Certificates.</li>
+<li>Raw public keys.</li>
+<li>Pre-shared secrets.</li>
+</ul>
+<p id="rfc.section.10.p.5">Since these credential types offer different properties the LwM2M specification offers support for all of them. <a href="#RFC7925" class="xref">[RFC7925]</a> provides the necessary details about the use of each of these credentials with DTLS.</p>
+<p id="rfc.section.10.p.6">The LwM2M protocol specifies that authorization of LwM2M Servers to access Object Instances and Resources within the LwM2M Client is provided through Access Control Object Instances within the LwM2M Client.</p>
+<h1 id="rfc.section.10.1">
+<a href="#rfc.section.10.1">10.1.</a> <a href="#dtls-security" id="dtls-security">DTLS Security</a>
+</h1>
+<p id="rfc.section.10.1.p.1">blablabla</p>
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -1882,6 +1838,11 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 <td class="reference"><b id="RFC7317">[RFC7317]</b></td>
 <td class="top">
 <a>Bierman, A.</a> and <a>M. Bjorklund</a>, "<a href="https://tools.ietf.org/html/rfc7317">A YANG Data Model for System Management</a>", RFC 7317, DOI 10.17487/RFC7317, August 2014.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC7925">[RFC7925]</b></td>
+<td class="top">
+<a>Tschofenig, H.</a> and <a>T. Fossati</a>, "<a href="https://tools.ietf.org/html/rfc7925">Transport Layer Security (TLS) / Datagram Transport Layer Security (DTLS) Profiles for the Internet of Things</a>", RFC 7925, DOI 10.17487/RFC7925, July 2016.</td>
 </tr>
 <tr>
 <td class="reference"><b id="XML">[XML]</b></td>
