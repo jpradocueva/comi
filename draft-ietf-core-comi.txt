@@ -118,38 +118,38 @@ Internet-Draft                  LWM2M TS                   December 2017
      4.4.  Registration Interface  . . . . . . . . . . . . . . . . .   9
      4.5.  Device Management and Service Enablement Interface  . . .   9
      4.6.  Information Reporting Interface . . . . . . . . . . . . .   9
-       4.6.1.  Queue Mode Operation  . . . . . . . . . . . . . . . .   9
-       4.6.2.  Update Trigger Mechanism  . . . . . . . . . . . . . .   9
-     4.7.  Response Codes  . . . . . . . . . . . . . . . . . . . . .   9
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  11
-     5.1.  DTLS Security . . . . . . . . . . . . . . . . . . . . . .  12
-       5.1.1.  DTLS Overview . . . . . . . . . . . . . . . . . . . .  13
-       5.1.2.  Ciphersuites  . . . . . . . . . . . . . . . . . . . .  14
-       5.1.3.  Bootstrapping . . . . . . . . . . . . . . . . . . . .  14
-       5.1.4.  Endpoint Client Name  . . . . . . . . . . . . . . . .  16
-       5.1.5.  LwM2M and DTLS Roles  . . . . . . . . . . . . . . . .  16
-       5.1.6.  Pre-Shared Keys . . . . . . . . . . . . . . . . . . .  17
-       5.1.7.  Raw Public Keys . . . . . . . . . . . . . . . . . . .  17
-       5.1.8.  X.509 Certificates  . . . . . . . . . . . . . . . . .  18
-       5.1.9.  "NoSec" mode  . . . . . . . . . . . . . . . . . . . .  20
-       5.1.10. Certificate mode with EST . . . . . . . . . . . . . .  21
-     5.2.  SMS Channel Security  . . . . . . . . . . . . . . . . . .  22
-       5.2.1.  SMS "NoSec" Mode  . . . . . . . . . . . . . . . . . .  22
-       5.2.2.  SMS Secured Mode  . . . . . . . . . . . . . . . . . .  23
-       5.2.3.  Device End-Point  . . . . . . . . . . . . . . . . . .  23
-       5.2.4.  Smartcard End-Point . . . . . . . . . . . . . . . . .  25
-       5.2.5.  SMS Secured Packet Binding for CoAP messages  . . . .  27
-     5.3.  LPWA Security . . . . . . . . . . . . . . . . . . . . . .  28
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  30
-     6.1.  Resource Type (rt=) Link Target Attribute Values Registry  31
-     6.2.  CoAP Content-Formats Registry . . . . . . . . . . . . . .  31
-   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  31
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  32
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  32
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  33
-   Appendix A.  Appendix 1: TITLE  . . . . . . . . . . . . . . . . .  34
-   Appendix B.  OMA DM example Objects . . . . . . . . . . . . . . .  35
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  35
+       4.6.1.  Queue Mode Operation  . . . . . . . . . . . . . . . .  10
+       4.6.2.  Update Trigger Mechanism  . . . . . . . . . . . . . .  10
+     4.7.  Response Codes  . . . . . . . . . . . . . . . . . . . . .  10
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
+     5.1.  DTLS Security . . . . . . . . . . . . . . . . . . . . . .  13
+       5.1.1.  DTLS Overview . . . . . . . . . . . . . . . . . . . .  14
+       5.1.2.  Ciphersuites  . . . . . . . . . . . . . . . . . . . .  15
+       5.1.3.  Bootstrapping . . . . . . . . . . . . . . . . . . . .  15
+       5.1.4.  Endpoint Client Name  . . . . . . . . . . . . . . . .  17
+       5.1.5.  LwM2M and DTLS Roles  . . . . . . . . . . . . . . . .  17
+       5.1.6.  Pre-Shared Keys . . . . . . . . . . . . . . . . . . .  18
+       5.1.7.  Raw Public Keys . . . . . . . . . . . . . . . . . . .  18
+       5.1.8.  X.509 Certificates  . . . . . . . . . . . . . . . . .  19
+       5.1.9.  "NoSec" mode  . . . . . . . . . . . . . . . . . . . .  21
+       5.1.10. Certificate mode with EST . . . . . . . . . . . . . .  22
+     5.2.  SMS Channel Security  . . . . . . . . . . . . . . . . . .  23
+       5.2.1.  SMS "NoSec" Mode  . . . . . . . . . . . . . . . . . .  23
+       5.2.2.  SMS Secured Mode  . . . . . . . . . . . . . . . . . .  24
+       5.2.3.  Device End-Point  . . . . . . . . . . . . . . . . . .  24
+       5.2.4.  Smartcard End-Point . . . . . . . . . . . . . . . . .  26
+       5.2.5.  SMS Secured Packet Binding for CoAP messages  . . . .  28
+     5.3.  LPWA Security . . . . . . . . . . . . . . . . . . . . . .  29
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  31
+     6.1.  Resource Type (rt=) Link Target Attribute Values Registry  32
+     6.2.  CoAP Content-Formats Registry . . . . . . . . . . . . . .  32
+   7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  32
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  33
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  33
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  34
+   Appendix A.  Appendix 1: TITLE  . . . . . . . . . . . . . . . . .  35
+   Appendix B.  OMA DM example Objects . . . . . . . . . . . . . . .  36
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  36
 
 1.  Copyright Notice
 
@@ -282,19 +282,19 @@ Jimenez, et al.           Expires June 20, 2018                 [Page 5]
 Internet-Draft                  LWM2M TS                   December 2017
 
 
-   +----------------------------------+  +---------+
-   |              LWM2M               |  | Objects |
-   +----------------------------------+  +---------+
-   +----------------------------------+
-   |              CoAP                |
-   +----------------------------------+
-   +----------------+ +---------------+
-   |      DTLS      | |    SMS        |
-   +----------------+ |               |
-   +-------+ +------+ |  on Smartcard |
-   |  UDP  | |SMS on| |               |
-   |       | |device| |               |
-   +-------+ +------+ +---------------+
+       +----------------------------------+  +---------+
+       |              LWM2M               |  | Objects |
+       +----------------------------------+  +---------+
+       +----------------------------------+
+       |              CoAP                |
+       +----------------------------------+
+       +----------------+ +---------------+
+       |      DTLS      | |    SMS        |
+       +----------------+ |               |
+       +-------+ +------+ |  on Smartcard |
+       |  UDP  | |SMS on| |               |
+       |       | |device| |               |
+       +-------+ +------+ +---------------+
 
              Figure 1: The Protocol Stack of the LwM2M Enabler
 
@@ -461,7 +461,12 @@ Internet-Draft                  LWM2M TS                   December 2017
    under the "/lwm2m" path.  The registration payload would be as
    follows:
 
-</lwm2m>;rt="oma.lwm2m", </lwm2m /1/0>,</lwm2m /1/1>,</lwm2m /2/0>,</lwm2m /2/1>,</lwm2m /2/2>,</lwm2m /2/3>,</lwm2m /2/4>,</lwm2m /3/0>,</lwm2m /4/0>,</lwm2m /5>
+  </lwm2m>;rt="oma.lwm2m",
+  </lwm2m /1/0>,</lwm2m /1/1>,
+  </lwm2m /2/0>,</lwm2m /2/1>,</lwm2m /2/2>,</lwm2m /2/3>,</lwm2m /2/4>,
+  </lwm2m /3/0>,
+  </lwm2m /4/0>,
+  </lwm2m /5>
 
                                  Figure 2
 
@@ -489,6 +494,18 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 4.6.  Information Reporting Interface
 
+
+
+
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                 [Page 9]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
+
 4.6.1.  Queue Mode Operation
 
 4.6.2.  Update Trigger Mechanism
@@ -499,16 +516,51 @@ Internet-Draft                  LWM2M TS                   December 2017
    codes are divided into each interface.  These are the only valid
    response codes defined in for the LwM2M Enabler.
 
-
-
-Jimenez, et al.           Expires June 20, 2018                 [Page 9]
-
-Internet-Draft                  LWM2M TS                   December 2017
-
-
    The different Content-formats usage is summarized in the table below:
 
    Table 1 example: Formatted
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 10]
+
+Internet-Draft                  LWM2M TS                   December 2017
+
 
    +------------------+--------------------+---------------------------+
    | Operations       | CoAP Responses     | Reason Phrase             |
@@ -557,7 +609,11 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 10]
+
+
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 11]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -613,7 +669,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 11]
+Jimenez, et al.           Expires June 20, 2018                [Page 12]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -669,7 +725,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 12]
+Jimenez, et al.           Expires June 20, 2018                [Page 13]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -725,7 +781,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 13]
+Jimenez, et al.           Expires June 20, 2018                [Page 14]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -781,7 +837,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 14]
+Jimenez, et al.           Expires June 20, 2018                [Page 15]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -837,7 +893,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 15]
+Jimenez, et al.           Expires June 20, 2018                [Page 16]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -893,7 +949,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 16]
+Jimenez, et al.           Expires June 20, 2018                [Page 17]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -949,7 +1005,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 17]
+Jimenez, et al.           Expires June 20, 2018                [Page 18]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1005,7 +1061,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 18]
+Jimenez, et al.           Expires June 20, 2018                [Page 19]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1061,7 +1117,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 19]
+Jimenez, et al.           Expires June 20, 2018                [Page 20]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1117,7 +1173,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 20]
+Jimenez, et al.           Expires June 20, 2018                [Page 21]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1173,7 +1229,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 21]
+Jimenez, et al.           Expires June 20, 2018                [Page 22]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1229,7 +1285,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 22]
+Jimenez, et al.           Expires June 20, 2018                [Page 23]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1285,7 +1341,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 23]
+Jimenez, et al.           Expires June 20, 2018                [Page 24]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1341,7 +1397,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 24]
+Jimenez, et al.           Expires June 20, 2018                [Page 25]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1397,7 +1453,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 25]
+Jimenez, et al.           Expires June 20, 2018                [Page 26]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1453,7 +1509,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 26]
+Jimenez, et al.           Expires June 20, 2018                [Page 27]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1509,7 +1565,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 27]
+Jimenez, et al.           Expires June 20, 2018                [Page 28]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1565,7 +1621,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 28]
+Jimenez, et al.           Expires June 20, 2018                [Page 29]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1621,7 +1677,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 29]
+Jimenez, et al.           Expires June 20, 2018                [Page 30]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1677,7 +1733,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 30]
+Jimenez, et al.           Expires June 20, 2018                [Page 31]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1733,7 +1789,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 31]
+Jimenez, et al.           Expires June 20, 2018                [Page 32]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1789,7 +1845,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 32]
+Jimenez, et al.           Expires June 20, 2018                [Page 33]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1845,7 +1901,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 33]
+Jimenez, et al.           Expires June 20, 2018                [Page 34]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1901,7 +1957,7 @@ Appendix A.  Appendix 1: TITLE
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 34]
+Jimenez, et al.           Expires June 20, 2018                [Page 35]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1957,4 +2013,4 @@ Authors' Addresses
 
 
 
-Jimenez, et al.           Expires June 20, 2018                [Page 35]
+Jimenez, et al.           Expires June 20, 2018                [Page 36]

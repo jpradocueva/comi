@@ -534,19 +534,19 @@ address {
 <div id="rfc.figure.1"></div>
 <div id="archit"></div>
 <pre>
-+----------------------------------+  +---------+
-|              LWM2M               |  | Objects |
-+----------------------------------+  +---------+
-+----------------------------------+
-|              CoAP                |
-+----------------------------------+
-+----------------+ +---------------+
-|      DTLS      | |    SMS        |
-+----------------+ |               |
-+-------+ +------+ |  on Smartcard |
-|  UDP  | |SMS on| |               |
-|       | |device| |               |
-+-------+ +------+ +---------------+
+    +----------------------------------+  +---------+
+    |              LWM2M               |  | Objects |
+    +----------------------------------+  +---------+
+    +----------------------------------+
+    |              CoAP                |
+    +----------------------------------+
+    +----------------+ +---------------+
+    |      DTLS      | |    SMS        |
+    +----------------+ |               |
+    +-------+ +------+ |  on Smartcard |
+    |  UDP  | |SMS on| |               |
+    |       | |device| |               |
+    +-------+ +------+ +---------------+
 </pre>
 <p class="figure">Figure 1: The Protocol Stack of the LwM2M Enabler</p>
 <h1 id="rfc.section.4">
@@ -598,7 +598,12 @@ address {
 <div id="rfc.figure.2"></div>
 <div id="sampletext"></div>
 <pre>
-&lt;/lwm2m&gt;;rt="oma.lwm2m", &lt;/lwm2m /1/0&gt;,&lt;/lwm2m /1/1&gt;,&lt;/lwm2m /2/0&gt;,&lt;/lwm2m /2/1&gt;,&lt;/lwm2m /2/2&gt;,&lt;/lwm2m /2/3&gt;,&lt;/lwm2m /2/4&gt;,&lt;/lwm2m /3/0&gt;,&lt;/lwm2m /4/0&gt;,&lt;/lwm2m /5&gt;
+&lt;/lwm2m&gt;;rt="oma.lwm2m",
+&lt;/lwm2m /1/0&gt;,&lt;/lwm2m /1/1&gt;,
+&lt;/lwm2m /2/0&gt;,&lt;/lwm2m /2/1&gt;,&lt;/lwm2m /2/2&gt;,&lt;/lwm2m /2/3&gt;,&lt;/lwm2m /2/4&gt;,
+&lt;/lwm2m /3/0&gt;,
+&lt;/lwm2m /4/0&gt;,
+&lt;/lwm2m /5&gt;
 </pre>
 <p class="figure">Figure 2</p>
 <p id="rfc.section.4.2.2.p.5">When using the Device Management &amp; Service Enablement Interface and the Information Reporting Interface, the LwM2M Server MUST prepend the OMA LwM2M link to the path in the CoAP messages. Example: &#8220;GET /lwm2m/3/0/0.&#8221;</p>
