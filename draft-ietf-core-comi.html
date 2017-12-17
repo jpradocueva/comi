@@ -311,6 +311,7 @@ address {
 <link href="#rfc.section.9" rel="Chapter" title="9 Error Handling">
 <link href="#rfc.section.10" rel="Chapter" title="10 Security Considerations">
 <link href="#rfc.section.10.1" rel="Chapter" title="10.1 DTLS Security">
+<link href="#rfc.section.10.1.1" rel="Chapter" title="10.1.1 DTLS Overview">
 <link href="#rfc.section.11" rel="Chapter" title="11 IANA Considerations">
 <link href="#rfc.section.11.1" rel="Chapter" title="11.1 Resource Type (rt=) Link Target Attribute Values Registry">
 <link href="#rfc.section.11.2" rel="Chapter" title="11.2 CoAP Content-Formats Registry">
@@ -484,7 +485,9 @@ address {
 </li>
 <ul><li>10.1.   <a href="#rfc.section.10.1">DTLS Security</a>
 </li>
-</ul><li>11.   <a href="#rfc.section.11">IANA Considerations</a>
+<ul><li>10.1.1.   <a href="#rfc.section.10.1.1">DTLS Overview</a>
+</li>
+</ul></ul><li>11.   <a href="#rfc.section.11">IANA Considerations</a>
 </li>
 <ul><li>11.1.   <a href="#rfc.section.11.1">Resource Type (rt=) Link Target Attribute Values Registry</a>
 </li>
@@ -1545,7 +1548,36 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 <h1 id="rfc.section.10.1">
 <a href="#rfc.section.10.1">10.1.</a> <a href="#dtls-security" id="dtls-security">DTLS Security</a>
 </h1>
-<p id="rfc.section.10.1.p.1">blablabla</p>
+<p><strong>Requirements</strong></p>
+<p id="rfc.section.10.1.p.2">For authentication of communicating LwM2M entities, the LwM2M protocol requires that all communication between LwM2M Clients and LwM2M Servers as well as LwM2M Clients and LwM2M Bootstrap-Servers are authenticated using mutual authentication. This means that a:</p>
+<p></p>
+
+<ul>
+<li>LwM2M Client MUST authenticate a LwM2M Server prior to exchange of any information.</li>
+<li>LwM2M Server MUST authenticate a LwM2M Client prior to exchange of any information.</li>
+<li>LwM2M Client MUST authenticate a LwM2M Bootstrap-Server prior to exchange of any information.</li>
+<li>LwM2M Bootstrap-Server MUST authenticate a LwM2M Client prior to exchange of any information.</li>
+</ul>
+<p id="rfc.section.10.1.p.4">For confidentiality and data integrity of information between communicating LwM2M entities, the LwM2M protocol requires that all communication between LwM2M Clients and LwM2M Servers as well as LwM2M Clients and LwM2M Bootstrap-Servers are encrypted and integrity protected. This means that a:</p>
+<p></p>
+
+<ul>
+<li>LwM2M Client MUST encrypt and integrity protect data communicated to a LwM2M Server.</li>
+<li>LwM2M Server MUST encrypt and integrity protect data communicated to a LwM2M Client.</li>
+<li>LwM2M Client MUST encrypt and integrity protect data communicated to a LwM2M Bootstrap-Server.</li>
+<li>LwM2M Bootstrap-Server MUST encrypt and integrity protect data communicated to a LwM2M Client.</li>
+</ul>
+<p id="rfc.section.10.1.p.6">Due the sensitive nature of bootstrap information, a particular care has to be taken to ensure protection of that data.</p>
+<p id="rfc.section.10.1.p.7">The use of DTLS fulfils these requirements.</p>
+<h1 id="rfc.section.10.1.1">
+<a href="#rfc.section.10.1.1">10.1.1.</a> <a href="#dtls-overview" id="dtls-overview">DTLS Overview</a>
+</h1>
+<p id="rfc.section.10.1.1.p.1">CoAP <a href="#RFC7252" class="xref">[RFC7252]</a> is secured using the Datagram Transport Layer Security (DTLS) 1.2 protocol <a href="#RFC6347" class="xref">[RFC6347]</a>, which is based on TLS v1.2 <a href="#RFC5246" class="xref">[RFC5246]</a>. The DTLS binding for CoAP is defined in Section 9 of <a href="#RFC7252" class="xref">[RFC7252]</a>. DTLS is a communication security solution for datagram based protocols (such as UDP). It provides a secure handshake with session key generation, mutual authentication, data integrity and confidentiality.</p>
+<p id="rfc.section.10.1.1.p.2">This section provides information related to the use of DTLS for use with CoAP over DTLS over UDP as well as for use with CoAP over DTLS over SMS. Section &#8220;SMS Channel Security&#8221; provides additional information regarding the use of DTLS in an SMS context. This document uses the profiles defined in <a href="#RFC7925" class="xref">[RFC7925]</a>, which includes not only ciphersuites but also extensions.</p>
+<p id="rfc.section.10.1.1.p.3">The DTLS client and the DTLS server SHOULD keep security state, such as session keys, sequence numbers, and initialization vectors, and other security parameters, established with DTLS for as long a period as can be safely achieved without risking compromise to the security context. If such state persists across sleep cycles where the RAM is powered off, secure storage SHOULD be used for the security context.</p>
+<p id="rfc.section.10.1.1.p.4">The credentials used for authenticating the DTLS client and the DTLS server to secure the communication between the LwM2M Client and the LwM2M Server are obtained using one of the bootstrap modes defined in Section 5.2.2. Appendix E.1.1 of (TODO add Link to LWM2M-CORE) defines the format of the keying material stored in the LwM2M Security Object Instances.</p>
+<p id="rfc.section.10.1.1.p.5">LwM2M Bootstrap-Servers, LwM2M Servers and LwM2M Clients MUST use different key pairs. LwM2M Clients MUST use keys, which are unique to each LwM2M Client. When a LwM2M Client is configured to utilize multiple LwM2M Servers then the LwM2M Bootstrap-Server may configure different credentials with these LwM2Ms Servers. Such configuration provides better unlinkability properties since each individual LwM2M Server cannot correlate request based on the credentials used by the LwM2M Client. Deployment and application specific considerations dictate what approach to use.</p>
+<p><strong>DTLS Overview</strong></p>
 <h1 id="rfc.section.11">
 <a href="#rfc.section.11">11.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
@@ -1749,6 +1781,11 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 <td class="reference"><b id="RFC4648">[RFC4648]</b></td>
 <td class="top">
 <a>Josefsson, S.</a>, "<a href="https://tools.ietf.org/html/rfc4648">The Base16, Base32, and Base64 Data Encodings</a>", RFC 4648, DOI 10.17487/RFC4648, October 2006.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC5246">[RFC5246]</b></td>
+<td class="top">
+<a>Dierks, T.</a> and <a>E. Rescorla</a>, "<a href="https://tools.ietf.org/html/rfc5246">The Transport Layer Security (TLS) Protocol Version 1.2</a>", RFC 5246, DOI 10.17487/RFC5246, August 2008.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC5277">[RFC5277]</b></td>
