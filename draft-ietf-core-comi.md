@@ -1,7 +1,7 @@
 ---
 stand_alone: true
 ipr: trust200902
-docname: draft-oma-dm-lwm2mts-02
+docname: draft-omadm-lwm2m-ts
 cat: std
 pi:
   toc: 'yes'
@@ -19,17 +19,14 @@ author:
   city: Madrid
   region: Spain
 - ins: A. One
-  role: author
   name: Author One
   org: Company
   email: author@company.org
 - ins: A. Two
-  role: author
   name: Author Two
   org: Company
   email: author@company.org
 - ins: A. Three
-  role: author
   name: Author Three
   org: Company
   email: author@company.org
@@ -102,7 +99,6 @@ This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M
 *   Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.
 
 --- note_Note
-
 
 Discussion and suggestions for improvement are requested,
 and should be sent to omaemail@oma.com.
@@ -214,7 +210,7 @@ node.
 +------------------------------------------------------------+
 |                     YANG specification  (1)                |
 +------------------------------------------------------------+
-         |                                          |
+        |                                          |
 Client   V                               Server     V       
 +----------------+                       +-------------------+
 | Request        |--> CoAP request(3) -->| Indication        |
