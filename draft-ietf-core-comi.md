@@ -122,23 +122,24 @@ This specification defines the transport bindings for the LwM2M messaging protoc
 *   CoAP over SMS
 *   CoAP over DTLS over SMS
 
-This draft describes the CoAP Management Interface which uses CoAP methods
-to access structured data defined in YANG {{RFC7950}}. This draft is
-complementary to {{RFC8040}} which describes a REST-like interface
-called RESTCONF, which uses HTTP methods to access structured data
-defined in YANG.
 
-The use of standardized data models specified in a standardized language, such
-as YANG, promotes interoperability between devices and applications from
-different manufacturers.
+~~~~
++----------------------------------+  +---------+
+|              LWM2M               |  | Objects |
++----------------------------------+  +---------+
++----------------------------------+
+|              CoAP                |
++----------------------------------+
++----------------+ +---------------+
+|      DTLS      | |    SMS        |
++----------------+ |               |
++-------+ +------+ |  on Smartcard |
+|  UDP  | |SMS on| |               |
+|       | |device| |               |
++-------+ +------+ +---------------+
+~~~~
+{: #archit title='The Protocol Stack of the LwM2M Enabler' artwork-align="left"}
 
-CoMI and RESTCONF are intended to work in a stateless client-server fashion.
-They use a single round-trip to complete a single editing transaction, where
-NETCONF needs up to 10 round trips.
-
-To promote small messges, CoMI uses a YANG to CBOR mapping
-{{I-D.ietf-core-yang-cbor}} and numeric identifiers
-{{I-D.ietf-core-sid}} to minimize CBOR payloads and URI length.
 
 ## Terminology {#terminology}
 
@@ -1439,19 +1440,27 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 # Security Considerations
 
 For secure network management, it is important to restrict access to configuration variables
-only to authorized parties. CoMI re-uses the security mechanisms already available to CoAP,
+only to authorized parties. LwM2M re-uses the security mechanisms already available to CoAP,
 this includes DTLS {{RFC6347}} for protected access to resources, as well suitable
 authentication and authorization mechanisms.
 
-Among the security decisions that need to be made are selecting security modes and encryption
-mechanisms (see {{RFC7252}}). This requires a trade-off, as the NoKey mode gives no protection at all,
-but is easy to implement, whereas the X.509 mode is quite secure, but may be too complex for constrained devices.
+The LwM2M protocol supports various transport bindings and credentials for securely communicating with LwM2M Servers. This configuration information can be provisioned during manufacturing or through the use of the bootstrap mechanism.
 
-In addition, mechanisms for authentication and authorization may need to be selected.
+LwM2M supports three different types of credentials, namely
 
-CoMI avoids defining new security mechanisms as much as possible.
-However, some adaptations may still be required, to cater for CoMI's specific requirements.
+* Certificates.
 
+* Raw public keys.
+
+* Pre-shared secrets.
+
+Since these credential types offer different properties the LwM2M specification offers support for all of them. {{RFC7925}} provides the necessary details about the use of each of these credentials with DTLS.
+
+The LwM2M protocol specifies that authorization of LwM2M Servers to access Object Instances and Resources within the LwM2M Client is provided through Access Control Object Instances within the LwM2M Client.
+
+## DTLS Security
+
+blabla
 
 # IANA Considerations
 
