@@ -2,16 +2,18 @@
 
 
 
-OMA                                                     . J Jimenez, Ed.
+OMA                                                      J. Jimenez, Ed.
 Internet-Draft                                                  Ericsson
-Intended status: Standards Track                    P. van der Stok, Ed.
-Expires: June 20, 2018                                        consultant
+Intended status: Standards Track                                  A. One
+Expires: June 20, 2018                                            A. Two
+                                                                A. Three
+                                                                 Company
                                                        December 17, 2017
 
 
    Lightweight Machine to Machine Technical Specification - Transport
                                 Bindings
-                        draft-oma-dm-lwm2mts-02
+                          draft-omadm-lwm2m-ts
 
 Abstract
 
@@ -51,9 +53,7 @@ Abstract
 
 
 
-
-
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 1]
+Jimenez, et al.           Expires June 20, 2018                 [Page 1]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 2]
+Jimenez, et al.           Expires June 20, 2018                 [Page 2]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 3]
+Jimenez, et al.           Expires June 20, 2018                 [Page 3]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -221,7 +221,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 4]
+Jimenez, et al.           Expires June 20, 2018                 [Page 4]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 5]
+Jimenez, et al.           Expires June 20, 2018                 [Page 5]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -296,7 +296,7 @@ Internet-Draft                  LWM2M TS                   December 2017
    +------------------------------------------------------------+
    |                     YANG specification  (1)                |
    +------------------------------------------------------------+
-            |                                          |
+           |                                          |
    Client   V                               Server     V
    +----------------+                       +-------------------+
    | Request        |--> CoAP request(3) -->| Indication        |
@@ -333,7 +333,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 6]
+Jimenez, et al.           Expires June 20, 2018                 [Page 6]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 7]
+Jimenez, et al.           Expires June 20, 2018                 [Page 7]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 8]
+Jimenez, et al.           Expires June 20, 2018                 [Page 8]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                 [Page 9]
+Jimenez, et al.           Expires June 20, 2018                 [Page 9]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 10]
+Jimenez, et al.           Expires June 20, 2018                [Page 10]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 11]
+Jimenez, et al.           Expires June 20, 2018                [Page 11]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -669,7 +669,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 12]
+Jimenez, et al.           Expires June 20, 2018                [Page 12]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -725,7 +725,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 13]
+Jimenez, et al.           Expires June 20, 2018                [Page 13]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -781,7 +781,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 14]
+Jimenez, et al.           Expires June 20, 2018                [Page 14]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -837,7 +837,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 15]
+Jimenez, et al.           Expires June 20, 2018                [Page 15]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -893,7 +893,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 16]
+Jimenez, et al.           Expires June 20, 2018                [Page 16]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -949,7 +949,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 17]
+Jimenez, et al.           Expires June 20, 2018                [Page 17]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 18]
+Jimenez, et al.           Expires June 20, 2018                [Page 18]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 19]
+Jimenez, et al.           Expires June 20, 2018                [Page 19]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 20]
+Jimenez, et al.           Expires June 20, 2018                [Page 20]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 21]
+Jimenez, et al.           Expires June 20, 2018                [Page 21]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 22]
+Jimenez, et al.           Expires June 20, 2018                [Page 22]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 23]
+Jimenez, et al.           Expires June 20, 2018                [Page 23]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 24]
+Jimenez, et al.           Expires June 20, 2018                [Page 24]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1397,7 +1397,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 25]
+Jimenez, et al.           Expires June 20, 2018                [Page 25]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1453,7 +1453,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 26]
+Jimenez, et al.           Expires June 20, 2018                [Page 26]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1509,7 +1509,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 27]
+Jimenez, et al.           Expires June 20, 2018                [Page 27]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1565,7 +1565,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 28]
+Jimenez, et al.           Expires June 20, 2018                [Page 28]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1621,7 +1621,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 29]
+Jimenez, et al.           Expires June 20, 2018                [Page 29]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1677,7 +1677,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 30]
+Jimenez, et al.           Expires June 20, 2018                [Page 30]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1733,7 +1733,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 31]
+Jimenez, et al.           Expires June 20, 2018                [Page 31]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1789,7 +1789,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 32]
+Jimenez, et al.           Expires June 20, 2018                [Page 32]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1845,7 +1845,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 33]
+Jimenez, et al.           Expires June 20, 2018                [Page 33]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1901,7 +1901,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 34]
+Jimenez, et al.           Expires June 20, 2018                [Page 34]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1957,7 +1957,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 35]
+Jimenez, et al.           Expires June 20, 2018                [Page 35]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2013,7 +2013,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 36]
+Jimenez, et al.           Expires June 20, 2018                [Page 36]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2069,7 +2069,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 37]
+Jimenez, et al.           Expires June 20, 2018                [Page 37]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2125,7 +2125,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 38]
+Jimenez, et al.           Expires June 20, 2018                [Page 38]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2181,7 +2181,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 39]
+Jimenez, et al.           Expires June 20, 2018                [Page 39]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2237,7 +2237,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 40]
+Jimenez, et al.           Expires June 20, 2018                [Page 40]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2293,7 +2293,7 @@ Appendix A.  ietf-comi YANG module
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 41]
+Jimenez, et al.           Expires June 20, 2018                [Page 41]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2349,7 +2349,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 42]
+Jimenez, et al.           Expires June 20, 2018                [Page 42]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2405,7 +2405,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 43]
+Jimenez, et al.           Expires June 20, 2018                [Page 43]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2461,7 +2461,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 44]
+Jimenez, et al.           Expires June 20, 2018                [Page 44]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2517,7 +2517,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 45]
+Jimenez, et al.           Expires June 20, 2018                [Page 45]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2573,7 +2573,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 46]
+Jimenez, et al.           Expires June 20, 2018                [Page 46]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2629,7 +2629,7 @@ Appendix B.  ietf-comi .sid file
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 47]
+Jimenez, et al.           Expires June 20, 2018                [Page 47]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2685,7 +2685,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 48]
+Jimenez, et al.           Expires June 20, 2018                [Page 48]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2741,7 +2741,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 49]
+Jimenez, et al.           Expires June 20, 2018                [Page 49]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2797,7 +2797,7 @@ C.1.  ietf-system
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 50]
+Jimenez, et al.           Expires June 20, 2018                [Page 50]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2853,7 +2853,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 51]
+Jimenez, et al.           Expires June 20, 2018                [Page 51]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2909,7 +2909,7 @@ C.3.  interfaces
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 52]
+Jimenez, et al.           Expires June 20, 2018                [Page 52]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -2965,7 +2965,7 @@ C.4.  Example-port
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 53]
+Jimenez, et al.           Expires June 20, 2018                [Page 53]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3021,7 +3021,7 @@ C.5.  IP-MIB
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 54]
+Jimenez, et al.           Expires June 20, 2018                [Page 54]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3077,7 +3077,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 55]
+Jimenez, et al.           Expires June 20, 2018                [Page 55]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -3108,24 +3108,22 @@ Authors' Addresses
    Madrid, Spain
 
 
-   Peter van der Stok (editor)
-   consultant
+   Author One
+   Company
 
-   Phone: +31-492474673 (Netherlands), +33-966015248 (France)
-   Email: consultancy@vanderstok.org
-   URI:   www.vanderstok.org
+   Email: author@company.org
 
 
+   Author Two
+   Company
+
+   Email: author@company.org
 
 
+   Author Three
+   Company
 
-
-
-
-
-
-
-
+   Email: author@company.org
 
 
 
@@ -3133,4 +3131,6 @@ Authors' Addresses
 
 
 
-J Jimenez & van der Stok  Expires June 20, 2018                [Page 56]
+
+
+Jimenez, et al.           Expires June 20, 2018                [Page 56]
