@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>CoAP Management Interface</title>
+  <title>Lightweight Machine to Machine Technical Specification - Transport Bindings</title>
 
   
 <style type="text/css">/*<![CDATA[*/
@@ -333,11 +333,11 @@ address {
   <meta name="generator" content="xml2rfc version 2.8.2 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Veillette, M., Ed., van der Stok, P., Ed., Pelov, A., and A. Bierman" />
+  <meta name="dct.creator" content="J Jimenez, ., Ed. and P. van der Stok, Ed." />
   <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-core-comi-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-12-16" />
-  <meta name="dct.abstract" content="This document describes a network management interface for constrained devices and networks, called CoAP Management Interface (CoMI). The Constrained Application Protocol (CoAP) is used to access datastore and data node resources specified in YANG, or SMIv2 converted to YANG. CoMI uses the YANG to CBOR mapping and converts YANG identifier strings to numeric identifiers for payload size reduction.  CoMI extends the set of YANG based protocols, NETCONF and RESTCONF, with the capability to manage constrained devices and networks." />
-  <meta name="description" content="This document describes a network management interface for constrained devices and networks, called CoAP Management Interface (CoMI). The Constrained Application Protocol (CoAP) is used to access datastore and data node resources specified in YANG, or SMIv2 converted to YANG. CoMI uses the YANG to CBOR mapping and converts YANG identifier strings to numeric identifiers for payload size reduction.  CoMI extends the set of YANG based protocols, NETCONF and RESTCONF, with the capability to manage constrained devices and networks." />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-12-17" />
+  <meta name="dct.abstract" content="This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:" />
+  <meta name="description" content="This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:" />
 
 </head>
 
@@ -347,58 +347,55 @@ address {
     <tbody>
     
     	<tr>
-<td class="left">CoRE</td>
-<td class="right">M. Veillette, Ed.</td>
+<td class="left">OMA</td>
+<td class="right">. J Jimenez, Ed.</td>
 </tr>
 <tr>
 <td class="left">Internet-Draft</td>
-<td class="right">Trilliant Networks Inc.</td>
+<td class="right">Ericsson</td>
 </tr>
 <tr>
 <td class="left">Intended status: Standards Track</td>
 <td class="right">P. van der Stok, Ed.</td>
 </tr>
 <tr>
-<td class="left">Expires: June 19, 2018</td>
+<td class="left">Expires: June 20, 2018</td>
 <td class="right">consultant</td>
 </tr>
 <tr>
 <td class="left"></td>
-<td class="right">A. Pelov</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">Acklio</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">A. Bierman</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">YumaWorks</td>
-</tr>
-<tr>
-<td class="left"></td>
-<td class="right">December 16, 2017</td>
+<td class="right">December 17, 2017</td>
 </tr>
 
     	
     </tbody>
   </table>
 
-  <p class="title">CoAP Management Interface<br />
+  <p class="title">Lightweight Machine to Machine Technical Specification - Transport Bindings<br />
   <span class="filename">draft-ietf-core-comi-02</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
-<p>This document describes a network management interface for constrained devices and networks, called CoAP Management Interface (CoMI). The Constrained Application Protocol (CoAP) is used to access datastore and data node resources specified in YANG, or SMIv2 converted to YANG. CoMI uses the YANG to CBOR mapping and converts YANG identifier strings to numeric identifiers for payload size reduction.  CoMI extends the set of YANG based protocols, NETCONF and RESTCONF, with the capability to manage constrained devices and networks.</p>
+<p>This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:</p>
+<p></p>
+
+<ul>
+<li>Simple resource model with the core set of objects and resources defined in this specification. The full list of registered objects can be found at [OMNA].</li>
+<li>Operations for creation, update, deletion, and retrieval of resources.</li>
+<li>Asynchronous notifications of resource changes.</li>
+<li>Support for several serialization formats, namely TLV, JSON, Plain Text and binary data formats and the core set of LightweightM2M Objects.</li>
+<li>UDP and SMS transport support.</li>
+<li>Communication security based on the DTLS protocol supporting different types of credentials.</li>
+<li>Queue Mode offers functionality for a LwM2M Client to inform the LwM2M Server that it may be disconnected for an extended period and when it becomes reachable again.</li>
+<li>Support for use of multiple LwM2M Servers.</li>
+<li>Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.</li>
+</ul>
 <h1><a>Note</a></h1>
 <p>Discussion and suggestions for improvement are requested, and should be sent to core@ietf.org.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on June 19, 2018.</p>
+<p>This Internet-Draft will expire on June 20, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -630,15 +627,15 @@ Client   V                               Server     V
 <p id="rfc.section.2.2.p.2">When used in a URI, SIDs are encoded in based64 using the URL and Filename safe alphabet as defined by <a href="#RFC4648" class="xref">[RFC4648]</a> section 5. The last 6 bits encoded is always aligned with the least significant 6 bits of the SID represented using an unsigned integer.  &#8216;A&#8217; characters (value 0) at the start of the resulting string are removed.</p>
 <pre>
 SID in basae64 = URLsafeChar[SID &gt;&gt; 60 &amp; 0x3F] |
-                 URLsafeChar[SID &gt;&gt; 54 &amp; 0x3F] | 
-                 URLsafeChar[SID &gt;&gt; 48 &amp; 0x3F] | 
+                 URLsafeChar[SID &gt;&gt; 54 &amp; 0x3F] |
+                 URLsafeChar[SID &gt;&gt; 48 &amp; 0x3F] |
                  URLsafeChar[SID &gt;&gt; 42 &amp; 0x3F] |  
-                 URLsafeChar[SID &gt;&gt; 36 &amp; 0x3F] | 
-                 URLsafeChar[SID &gt;&gt; 30 &amp; 0x3F] | 
+                 URLsafeChar[SID &gt;&gt; 36 &amp; 0x3F] |
+                 URLsafeChar[SID &gt;&gt; 30 &amp; 0x3F] |
                  URLsafeChar[SID &gt;&gt; 24 &amp; 0x3F] |  
-                 URLsafeChar[SID &gt;&gt; 18 &amp; 0x3F] | 
-                 URLsafeChar[SID &gt;&gt; 12 &amp; 0x3F] | 
-                 URLsafeChar[SID &gt;&gt; 6 &amp; 0x3F] | 
+                 URLsafeChar[SID &gt;&gt; 18 &amp; 0x3F] |
+                 URLsafeChar[SID &gt;&gt; 12 &amp; 0x3F] |
+                 URLsafeChar[SID &gt;&gt; 6 &amp; 0x3F] |
                  URLsafeChar[SID &amp; 0x3F]
 </pre>
 <p id="rfc.section.2.2.p.3">For example, SID 1721 is encoded as follow.</p>
@@ -652,7 +649,7 @@ URLsafeChar[1721 &gt;&gt; 30 &amp; 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 &gt;&gt; 24 &amp; 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 &gt;&gt; 18 &amp; 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 &gt;&gt; 12 &amp; 0x3F] = URLsafeChar[0] = 'A'
-URLsafeChar[1721 &gt;&gt; 6 &amp; 0x3F]  = URLsafeChar[26] = 'a' 
+URLsafeChar[1721 &gt;&gt; 6 &amp; 0x3F]  = URLsafeChar[26] = 'a'
 URLsafeChar[1721 &amp; 0x3F]       = URLsafeChar[57] = '5'
 </pre>
 <p id="rfc.section.2.2.p.4">The resulting base64 representation of SID 1721 is &#8220;a5&#8221;</p>
@@ -1281,7 +1278,7 @@ RES:   2.02 Deleted
 <pre>
 FORMAT:
   GET /c
-   
+
   2.05 Content (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
 </pre>
@@ -1289,20 +1286,20 @@ FORMAT:
 FORMAT:
   PUT /c (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
-   
+
   2.04 Changed
 </pre>
 <pre>
 FORMAT:
   POST /c (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
-    
+
   2.01 Created
 </pre>
 <pre>
 FORMAT:
    DELETE /c
-   
+
   2.02 Deleted
 </pre>
 <p id="rfc.section.5.4.p.2">The content of the ordered map represents the complete datastore of the server at the GET indication of after a successful processing of a PUT or POST request.  When an Ordered map is used to carry a whole datastore, all data nodes MUST be identified using single instance identifiers (i.e. a SID), list instance identifiers are not allowed.</p>
@@ -1887,7 +1884,7 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 &lt;CODE BEGINS&gt; file "ietf-comi@2017-07-01.yang"
 module ietf-comi {
   yang-version 1.1;
-  
+
   namespace "urn:ietf:params:xml:ns:yang:ietf-comi";
   prefix comi;
 
@@ -1903,7 +1900,7 @@ module ietf-comi {
 
      Peter van der Stok
      &lt;mailto:consultancy@vanderstok.org&gt;
-     
+
      Andy Bierman
      &lt;mailto:andy@yumaworks.com&gt;";
 
@@ -1917,7 +1914,7 @@ module ietf-comi {
     reference
       "[I-D.ietf-core-comi] CoAP Management Interface";
   }
-  
+
   typedef sid {
     type uint64;
     description
@@ -1925,7 +1922,7 @@ module ietf-comi {
     reference
       "[I-D.ietf-core-sid] YANG Schema Item iDentifier (SID)";
   }
-  
+
   typedef date_and_time_b {
     type int64;
     description
@@ -1963,7 +1960,7 @@ module ietf-comi {
        'pattern' or 'require-instance' constrain is not
        fulfilled.";
   }
-  
+
   identity missing-element {
     base error-tag;
     description
@@ -1974,7 +1971,7 @@ module ietf-comi {
        its ancestors have a 'when' condition or 'if-feature'
        expression that evaluates to 'false'.";
   }
-  
+
   identity unknown-element {
     base error-tag;
     description
@@ -1984,7 +1981,7 @@ module ietf-comi {
        evaluated to 'false' or to a 'when' condition evaluated
        to 'false'.";
   }
-  
+
   identity bad-element {
     base error-tag;
     description
@@ -1998,14 +1995,14 @@ module ietf-comi {
       "Returned by the CoMI server when a data node required to
        accept the request is not present.";
   }
-  
+
   identity error {
     base error-tag;
     description
       "Returned by the CoMI server when an unspecified error has
       occurred.";
   }
-  
+
   identity error-app-tag {
     description
       "Base identity for error-app-tag.";
@@ -2119,10 +2116,10 @@ module ietf-comi {
       "Returned by the CoMI server when no nodes exist in a
        mandatory choice.";
   }
-        
+
   container error {
     presence "Error paylaod";
-    
+
     description
       "Optional payload of a 4.00 Bad Request CoAP error.";
 
@@ -2602,24 +2599,23 @@ module IP-MIB {
 <div class="avoidbreak">
   <address class="vcard">
 	<span class="vcardline">
-	  <span class="fn">Michel Veillette</span> (editor)
+	  <span class="fn">Jaime Jimenez</span> (editor)
 	  <span class="n hidden">
-		<span class="family-name">Veillette</span>
+		<span class="family-name">J Jimenez</span>
 	  </span>
 	</span>
-	<span class="org vcardline">Trilliant Networks Inc.</span>
+	<span class="org vcardline">Ericsson</span>
 	<span class="adr">
-	  <span class="vcardline">610 Rue du Luxembourg</span>
+	  <span class="vcardline">My Great Street</span>
 
 	  <span class="vcardline">
-		<span class="locality">Granby</span>,  
-		<span class="region">Quebec</span> 
-		<span class="code">J2J 2V2</span>
+		<span class="locality">Madrid</span>,  
+		<span class="region">Spain</span> 
+		<span class="code"></span>
 	  </span>
-	  <span class="country-name vcardline">Canada</span>
+	  <span class="country-name vcardline"></span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:michel.veillette@trilliantinc.com">michel.veillette@trilliantinc.com</a></span>
-
+	
   </address>
 </div><div class="avoidbreak">
   <address class="vcard">
@@ -2644,51 +2640,6 @@ module IP-MIB {
 <span class="vcardline">EMail: <a href="mailto:consultancy@vanderstok.org">consultancy@vanderstok.org</a></span>
 
 <span class="vcardline">URI: <a href="www.vanderstok.org">www.vanderstok.org</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Alexander Pelov</span> 
-	  <span class="n hidden">
-		<span class="family-name">Pelov</span>
-	  </span>
-	</span>
-	<span class="org vcardline">Acklio</span>
-	<span class="adr">
-	  <span class="vcardline">2bis rue de la Chataigneraie</span>
-
-	  <span class="vcardline">
-		<span class="locality">Cesson-Sevigne</span>,  
-		<span class="region">Bretagne</span> 
-		<span class="code">35510</span>
-	  </span>
-	  <span class="country-name vcardline">France</span>
-	</span>
-	<span class="vcardline">EMail: <a href="mailto:a@ackl.io">a@ackl.io</a></span>
-
-  </address>
-</div><div class="avoidbreak">
-  <address class="vcard">
-	<span class="vcardline">
-	  <span class="fn">Andy Bierman</span> 
-	  <span class="n hidden">
-		<span class="family-name">Bierman</span>
-	  </span>
-	</span>
-	<span class="org vcardline">YumaWorks</span>
-	<span class="adr">
-	  <span class="vcardline">685 Cochran St.</span>
-<span class="vcardline">Suite #160</span>
-
-	  <span class="vcardline">
-		<span class="locality">Simi Valley</span>,  
-		<span class="region">CA</span> 
-		<span class="code">93065</span>
-	  </span>
-	  <span class="country-name vcardline">USA</span>
-	</span>
-	<span class="vcardline">EMail: <a href="mailto:andy@yumaworks.com">andy@yumaworks.com</a></span>
 
   </address>
 </div>
