@@ -144,19 +144,19 @@ be interpreted as described in {{RFC2119}}.
 A general architecture can be seen below {{archit}}.
 
 ~~~~
-+----------------------------------+  +---------+
-|              LWM2M               |  | Objects |
-+----------------------------------+  +---------+
-+----------------------------------+
-|              CoAP                |
-+----------------------------------+
-+----------------+ +---------------+
-|      DTLS      | |    SMS        |
-+----------------+ |               |
-+-------+ +------+ |  on Smartcard |
-|  UDP  | |SMS on| |               |
-|       | |device| |               |
-+-------+ +------+ +---------------+
+    +----------------------------------+  +---------+
+    |              LWM2M               |  | Objects |
+    +----------------------------------+  +---------+
+    +----------------------------------+
+    |              CoAP                |
+    +----------------------------------+
+    +----------------+ +---------------+
+    |      DTLS      | |    SMS        |
+    +----------------+ |               |
+    +-------+ +------+ |  on Smartcard |
+    |  UDP  | |SMS on| |               |
+    |       | |device| |               |
+    +-------+ +------+ +---------------+
 ~~~~
 {: #archit title='The Protocol Stack of the LwM2M Enabler' artwork-align="left"}
 
@@ -217,7 +217,12 @@ This link MUST NOT contain numerical URI segment.
 For instance, the Example Client from Appendix F may place Objects under the “/lwm2m” path. The registration payload would be as follows:
 
 ~~~~
-</lwm2m>;rt="oma.lwm2m", </lwm2m /1/0>,</lwm2m /1/1>,</lwm2m /2/0>,</lwm2m /2/1>,</lwm2m /2/2>,</lwm2m /2/3>,</lwm2m /2/4>,</lwm2m /3/0>,</lwm2m /4/0>,</lwm2m /5>
+</lwm2m>;rt="oma.lwm2m",
+</lwm2m /1/0>,</lwm2m /1/1>,
+</lwm2m /2/0>,</lwm2m /2/1>,</lwm2m /2/2>,</lwm2m /2/3>,</lwm2m /2/4>,
+</lwm2m /3/0>,
+</lwm2m /4/0>,
+</lwm2m /5>
 ~~~~
 {: #sampletext title='Sample text'artwork-align="left"}
 
