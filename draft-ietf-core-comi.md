@@ -52,6 +52,7 @@ informative:
   RFC6690:
   RFC7159:
   RFC7223:
+  RFC7925:
   RFC7317:
   I-D.ietf-core-interfaces:
   XML:
@@ -115,13 +116,24 @@ future installations. Messages between devices need to be as small and
 infrequent as possible. The implementation
 complexity and runtime resources need to be as small as possible.
 
-This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings:
+This specification defines the transport bindings for the LwM2M messaging protocol used between the LwM2M Client, the LwM2M Bootstrap Server and with the LwM2M Server. Figure 1 shows the relationships between the transport bindings and the messaging protocol. In particular, this specification defines the following transport bindings.
 
 *   CoAP over UDP
 *   CoAP over DTLS over UDP
 *   CoAP over SMS
 *   CoAP over DTLS over SMS
 
+
+## Terminology {#terminology}
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to
+be interpreted as described in {{RFC2119}}.
+
+# LwM2M Architecture {#lwm2m-architecture}
+
+
+A general architecture can be seen below {{archit}}.
 
 ~~~~
 +----------------------------------+  +---------+
@@ -139,127 +151,6 @@ This specification defines the transport bindings for the LwM2M messaging protoc
 +-------+ +------+ +---------------+
 ~~~~
 {: #archit title='The Protocol Stack of the LwM2M Enabler' artwork-align="left"}
-
-
-## Terminology {#terminology}
-
-The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
-"SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to
-be interpreted as described in {{RFC2119}}.
-
-The following terms are defined in the YANG data modelling language {{RFC7950}}: action, anydata, anyxml, client, configuration data, container, data model, data node, datastore, identity, instance identifier, key, key leaf, leaf, leaf-list, list, module, RPC, schema node, server, state data, submodule.
-
-The following term is defined in {{I-D.ietf-core-yang-cbor}}: YANG schema item identifier (SID).
-
-The following terms are defined in the CoAP protocol {{RFC7252}}: Confirmable Message, Content-Format.
-
-The following terms are defined in this document:
-
-data node resource:
-: a CoAP resource that models a YANG data node.
-
-datastore resource:
-: a CoAP resource that models a YANG datastore.
-
-event stream resource:
-: a CoAP resource used by clients to observe YANG notifications.
-
-target resource:
-: the resource that is associated with a particular CoAP request,
-  identified by the request URI.
-
-data node instance:
-: An instance of a data node specified in a YANG module and stored in the server.
-
-notification instance:
-: An instance of a schema node of type notification, specified in a YANG module
-  implemented by the server. The instance is generated in the server at the occurrence
-  of the corresponding event and reported by an event stream.
-
-list instance identifier:
-: Handle used to identify a YANG data node that is an instance of a YANG "list"
-  specified with the values of the key leaves of the list.
-
-
-single instance identifier:
-: Handle used to identify a specific data node which can be instantiated only
-  once. This includes data nodes defined at the root of a YANG module or
-  data nodes defined within a container. This excludes data nodes defined
-  within a list or any children of these data nodes.
-
-instance identifier:
-: List instance identifier or single instance identifier.
-
-data node value:
-: The value assigned to a data node instance. Data node values are serialized into
-  the payload according to the rules defined in section 4 of {{I-D.ietf-core-yang-cbor}}.
-
-
-# CoMI Architecture {#comi-architecture}
-
-This section describes the CoMI architecture to use CoAP for reading and
-modifying the content of datastore(s) used for the management of the instrumented
-node.
-
-
-~~~~
-+------------------------------------------------------------+
-|                     SMIv2 specification (2)                |
-+------------------------------------------------------------+
-                               |
-                               V
-+------------------------------------------------------------+
-|                     YANG specification  (1)                |
-+------------------------------------------------------------+
-        |                                          |
-Client   V                               Server     V       
-+----------------+                       +-------------------+
-| Request        |--> CoAP request(3) -->| Indication        |
-| Confirm        |<-- CoAP response(3)<--| Response      (4) |
-|                |                       |                   |
-|                |<==== Security (7) ===>|+-----------------+|
-+----------------+                       || Datastore (5)   ||
-                                         |+-----------------+|
-                                         |+-----------------+|
-                                         || Event stream (6)||
-                                         |+-----------------+|
-                                         +-------------------+
-~~~~
-{: #archit title='Abstract CoMI architecture' artwork-align="left"}
-
- {{archit}} is a high-level representation of the main elements of the CoMI management
-architecture. The different numbered components of {{archit}} are discussed according to component number.
-
-
-(1) YANG specification:
-: contains a set of named and versioned modules.
-
-
-(2) SMIv2 specification:
-: A named module specifies a set of variables and "conceptual tables". There
-  is an algorithm to translate SMIv2 specifications to YANG specifications.
-
-
-(3) CoAP request/response messages:
-: The CoMI client sends request messages to and receives response messages
-  from the CoMI server.
-
-
-(4) Request, Indication, Response, Confirm:
-: The processes performed by the CoMI clients and servers.
-
-
-(5) Datastore:
-: A resource used to access configuration data, state data, RPCs and actions. A CoMI server may support multiple datastores to support more complex operations such as configuration rollback, scheduled update.
-
-
-(6) Event stream:
-: An observable resource used to get real time notifications. A CoMI server may support multiple Event streams serving different purposes such as normal monitoring, diagnostic, syslog, security monitoring.
-
-
-(7) Security:
-: The server MUST prevent unauthorized users from reading or writing any CoMI
-  resources. CoMI relies on security protocols such as DTLS {{RFC6347}} to secure CoAP communication.
 
 
 ## Major differences between RESTCONF and CoMI {#major-differences}
@@ -1460,7 +1351,7 @@ The LwM2M protocol specifies that authorization of LwM2M Servers to access Objec
 
 ## DTLS Security
 
-blabla
+blablabla
 
 # IANA Considerations
 
