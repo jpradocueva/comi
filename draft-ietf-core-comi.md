@@ -6,21 +6,18 @@ cat: std
 pi:
   toc: 'yes'
   symrefs: 'yes'
-title: CoAP Management Interface
-abbrev: CoMI
+title: Lightweight Machine to Machine Technical Specification - Transport Bindings
+abbrev: LWM2M TS
 area: Applications
-wg: CoRE
+wg: OMA
 author:
-- ins: M. V. Veillette
+- ins: J Jimenez
   role: editor
-  name: Michel Veillette
-  org: Trilliant Networks Inc.
-  street: 610 Rue du Luxembourg
-  city: Granby
-  region: Quebec
-  code: J2J 2V2
-  country: Canada
-  email: michel.veillette@trilliantinc.com
+  name: Jaime Jimenez
+  org: Ericsson
+  street: My Great Street
+  city: Madrid
+  region: Spain
 - ins: P. van der Stok
   role: editor
   name: Peter van der Stok
@@ -29,27 +26,6 @@ author:
   phone: "+31-492474673 (Netherlands), +33-966015248 (France)"
   email: consultancy@vanderstok.org
   uri: www.vanderstok.org
-- ins: A. P. Pelov
-  name: Alexander Pelov
-  org: Acklio
-  street: 2bis rue de la Chataigneraie
-  city: Cesson-Sevigne
-  region: Bretagne
-  code: '35510'
-  country: France
-  email: a@ackl.io
-- ins: A. Bierman
-  name: Andy Bierman
-  org: YumaWorks
-  street:
-  - 685 Cochran St.
-  - 'Suite #160'
-  city: Simi Valley
-  region: CA
-  code: '93065'
-  code: '93065'
-  country: USA
-  email: andy@yumaworks.com
 normative:
   RFC2119:
   RFC4648:
@@ -97,13 +73,25 @@ informative:
 
 --- abstract
 
-This document describes a network management interface for constrained devices
-and networks, called CoAP Management Interface (CoMI). The Constrained Application
-Protocol (CoAP) is used to access datastore and data node resources specified
-in YANG, or SMIv2 converted to YANG. CoMI uses the YANG to CBOR mapping and converts
-YANG identifier strings to numeric identifiers for payload size reduction.
-CoMI extends the set of YANG based protocols, NETCONF and RESTCONF, with
-the capability to manage constrained devices and networks.
+This document specifies version 1.0 of the Lightweight Machine-to-Machine (LwM2M) protocol. This Lightweight M2M 1.0 enabler introduces the following features:
+
+-   Simple resource model with the core set of objects and resources defined in this specification. The full list of registered objects can be found at \[OMNA\].
+
+-   Operations for creation, update, deletion, and retrieval of resources.
+
+-   Asynchronous notifications of resource changes.
+
+-   Support for several serialization formats, namely TLV, JSON, Plain Text and binary data formats and the core set of LightweightM2M Objects.
+
+-   UDP and SMS transport support.
+
+-   Communication security based on the DTLS protocol supporting different types of credentials.
+
+-   Queue Mode offers functionality for a LwM2M Client to inform the LwM2M Server that it may be disconnected for an extended period and when it becomes reachable again.
+
+-   Support for use of multiple LwM2M Servers.
+
+-   Provisioning of security credentials and access control lists by a dedicated LwM2M bootstrap-server.
 
 --- note_Note
 
@@ -157,7 +145,7 @@ The following terms are defined in this document:
 
 data node resource:
 : a CoAP resource that models a YANG data node.
-      
+
 datastore resource:
 : a CoAP resource that models a YANG datastore.
 
@@ -167,7 +155,7 @@ event stream resource:
 target resource:
 : the resource that is associated with a particular CoAP request,
   identified by the request URI.
-      
+
 data node instance:
 : An instance of a data node specified in a YANG module and stored in the server.
 
@@ -175,18 +163,18 @@ notification instance:
 : An instance of a schema node of type notification, specified in a YANG module
   implemented by the server. The instance is generated in the server at the occurrence
   of the corresponding event and reported by an event stream.
-  
+
 list instance identifier:
 : Handle used to identify a YANG data node that is an instance of a YANG "list"
   specified with the values of the key leaves of the list.
 
-  
+
 single instance identifier:
 : Handle used to identify a specific data node which can be instantiated only
   once. This includes data nodes defined at the root of a YANG module or
   data nodes defined within a container. This excludes data nodes defined
   within a list or any children of these data nodes.
-  
+
 instance identifier:
 : List instance identifier or single instance identifier.
 
@@ -306,15 +294,15 @@ with the least significant 6 bits of the SID represented using an unsigned integ
 
 ~~~~
 SID in basae64 = URLsafeChar[SID >> 60 & 0x3F] |
-                 URLsafeChar[SID >> 54 & 0x3F] | 
-                 URLsafeChar[SID >> 48 & 0x3F] | 
+                 URLsafeChar[SID >> 54 & 0x3F] |
+                 URLsafeChar[SID >> 48 & 0x3F] |
                  URLsafeChar[SID >> 42 & 0x3F] |  
-                 URLsafeChar[SID >> 36 & 0x3F] | 
-                 URLsafeChar[SID >> 30 & 0x3F] | 
+                 URLsafeChar[SID >> 36 & 0x3F] |
+                 URLsafeChar[SID >> 30 & 0x3F] |
                  URLsafeChar[SID >> 24 & 0x3F] |  
-                 URLsafeChar[SID >> 18 & 0x3F] | 
-                 URLsafeChar[SID >> 12 & 0x3F] | 
-                 URLsafeChar[SID >> 6 & 0x3F] | 
+                 URLsafeChar[SID >> 18 & 0x3F] |
+                 URLsafeChar[SID >> 12 & 0x3F] |
+                 URLsafeChar[SID >> 6 & 0x3F] |
                  URLsafeChar[SID & 0x3F]
 ~~~~
 {: artwork-align="left"}
@@ -331,7 +319,7 @@ URLsafeChar[1721 >> 30 & 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 >> 24 & 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 >> 18 & 0x3F] = URLsafeChar[0] = 'A'
 URLsafeChar[1721 >> 12 & 0x3F] = URLsafeChar[0] = 'A'
-URLsafeChar[1721 >> 6 & 0x3F]  = URLsafeChar[26] = 'a' 
+URLsafeChar[1721 >> 6 & 0x3F]  = URLsafeChar[26] = 'a'
 URLsafeChar[1721 & 0x3F]       = URLsafeChar[57] = '5'
 ~~~~
 {: artwork-align="left"}
@@ -340,7 +328,7 @@ The resulting base64 representation of SID 1721 is "a5"
 
 ## Instance identifier {#instance-identifier}
 
-Instance identifiers are used to uniquely identify data node instances within a datastore. This YANG built-in type is defined in {{RFC7950}} section 9.13. An instance identifier is composed of the data node identifier (i.e. a SID) and for data nodes within list(s) the keys used to index within these list(s). 
+Instance identifiers are used to uniquely identify data node instances within a datastore. This YANG built-in type is defined in {{RFC7950}} section 9.13. An instance identifier is composed of the data node identifier (i.e. a SID) and for data nodes within list(s) the keys used to index within these list(s).
 
 When part of a payload, instance identifiers are encoded in CBOR based on the rules defined in {{I-D.ietf-core-yang-cbor}} section 5.13.1. When part of a URI, the SID is appended to the URI of the targeted datastore, the keys are specified using the 'k' URI-Query as defined in {{query}}.
 
@@ -381,13 +369,13 @@ application/yang-value+cbor:
   {{I-D.ietf-core-yang-cbor}} section 4.
 
 : FORMAT: data-node-value
-  
+
 : DELTA ENCODING: SIDs included in a YANG container, a list instance, a RPC input, a RPC output,
   an action input, an actions output and an anydata are encoded using a delta value equal to the
   SID of the current schema node minus the SID of the parent. The parent SID of root data
   nodes is defined by the URI carried in the associated request (i.e. GET, PUT, POST).
 
-  
+
 application/yang-values+cbor:
 
 : represents a YANG document containing a list of data node values.
@@ -417,12 +405,12 @@ application/yang-selectors+cbor:
 : represents a CBOR YANG document containing a list of data node selectors (i.e. instance identifier).
 
 : FORMAT: CBOR array of instance-identifier
-  
+
 : DELTA ENCODING: The SID part of the first instance-identifier within the CBOR array is
   encoded using its absolute value. Subsequent instance-identifiers are
   encoded using a delta value equal to the SID of the current instance-identifiers
   minus the SID of the previous instance-identifier.
-  
+
 
 application/yang-patch+cbor:
 : represents a CBOR YANG document containing a list of data nodes to be replaced, created, or deleted.
@@ -436,8 +424,8 @@ application/yang-patch+cbor:
   resource with the same instance identifier and data node value as D.
 
 : FORMAT: ordered map of instance-identifier, data-node-value
-  
-: DELTA ENCODING: Same as Content-Format application/yang-tree+cbor 
+
+: DELTA ENCODING: Same as Content-Format application/yang-tree+cbor
 
 
 The different Content-formats usage is  summarized in the table below:
@@ -558,7 +546,7 @@ of lists. The order of key value generation is given recursively by:
 
 * For a given list, generate key values in the order specified in the YANG module.
 
-Key values are encoded using the rules defined in the following table. 
+Key values are encoded using the rules defined in the following table.
 
 | YANG datatype               | Uri-Query text content          |
 | uint8,uint16,unit32, uint64 | int2str(key)                    |
@@ -576,7 +564,7 @@ Key values are encoded using the rules defined in the following table.
 
 In this table:
 
-  * The method int2str() is used to convert an integer value to a string. For example, int2str(0x0123) return  the string "291". 
+  * The method int2str() is used to convert an integer value to a string. For example, int2str(0x0123) return  the string "291".
 
   * The method urlSafeBase64() is used to convert a binary string to base64 using the URL and Filename safe alphabet as defined by [RFC4648] section 5. For example, urlSafeBase64(\xF9\x56\xA1\x3C) return the string "-VahPA".
 
@@ -584,7 +572,7 @@ In this table:
 
 The resulting key string is encoded in a Uri-Query as specified in {{RFC7252}} section 6.5.
 
-  
+
 ## Data Retrieval {#data-retrieval}
 
 One or more data nodes can be retrieved by the client.
@@ -729,7 +717,7 @@ RES: 2.05 Content (Content-Format: application/yang-value+cbor)
 {: artwork-align="left"}
 
 It is equally possible to select a leaf of a specific instance of a list.
-The example below requests the description leaf (SID=1534, base64: X-) 
+The example below requests the description leaf (SID=1534, base64: X-)
 within the interface list corresponding to the list key "eth0".
 The returned value is encoded in CBOR based on the rules
 specified by {{I-D.ietf-core-yang-cbor}} section 5.4.
@@ -983,7 +971,7 @@ and delete a whole datastore respectively.
 ~~~~
 FORMAT:
   GET /c
-   
+
   2.05 Content (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
 ~~~~
@@ -993,7 +981,7 @@ FORMAT:
 FORMAT:
   PUT /c (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
-   
+
   2.04 Changed
 ~~~~
 {: artwork-align="left"}
@@ -1002,7 +990,7 @@ FORMAT:
 FORMAT:
   POST /c (Content-Format: application/yang-tree+cbor)
   ordered map of single-instance-identifier, data-node-value
-    
+
   2.01 Created
 ~~~~
 {: artwork-align="left"}
@@ -1010,7 +998,7 @@ FORMAT:
 ~~~~
 FORMAT:
    DELETE /c
-   
+
   2.02 Deleted
 ~~~~
 {: artwork-align="left"}
@@ -1059,7 +1047,7 @@ RES: 2.05 Content (Content-Format :application/yang-tree+cbor)
 Event notification is an essential function for the management of servers.
 CoMI allows notifications specified in YANG {{RFC5277}} to be reported to a list
 of clients. The recommended path of the default event stream is /s.
-The server MAY support additional event stream resources to address different 
+The server MAY support additional event stream resources to address different
 notification needs.
 
 Reception of notification instances is enabled with the CoAP Observe
@@ -1348,7 +1336,7 @@ In case a request is received which cannot be processed properly, the CoMI serve
 
 Errors returned by a CoMI server can be broken into two categories, those associated to the CoAP protocol itself and those generated during the validation of the YANG data model constrains as described in [RFC7950] section 8.
 
-The following list of common CoAP errors should be implemented by CoMI servers. This list is not exhaustive, other errors defined by CoAP and associated RFCs may be applicable. 
+The following list of common CoAP errors should be implemented by CoMI servers. This list is not exhaustive, other errors defined by CoAP and associated RFCs may be applicable.
 
 * Error 4.01 (Unauthorized) is returned by the CoMI server when the CoMI client is not authorized to perform the requested action on the targeted resource (i.e. data node, datastore, rpc, action or event stream).
 
@@ -1573,7 +1561,7 @@ and Thomas Watteyne.
 <CODE BEGINS> file "ietf-comi@2017-07-01.yang"
 module ietf-comi {
   yang-version 1.1;
-  
+
   namespace "urn:ietf:params:xml:ns:yang:ietf-comi";
   prefix comi;
 
@@ -1589,7 +1577,7 @@ module ietf-comi {
 
      Peter van der Stok
      <mailto:consultancy@vanderstok.org>
-     
+
      Andy Bierman
      <mailto:andy@yumaworks.com>";
 
@@ -1603,7 +1591,7 @@ module ietf-comi {
     reference
       "[I-D.ietf-core-comi] CoAP Management Interface";
   }
-  
+
   typedef sid {
     type uint64;
     description
@@ -1611,7 +1599,7 @@ module ietf-comi {
     reference
       "[I-D.ietf-core-sid] YANG Schema Item iDentifier (SID)";
   }
-  
+
   typedef date_and_time_b {
     type int64;
     description
@@ -1649,7 +1637,7 @@ module ietf-comi {
        'pattern' or 'require-instance' constrain is not
        fulfilled.";
   }
-  
+
   identity missing-element {
     base error-tag;
     description
@@ -1660,7 +1648,7 @@ module ietf-comi {
        its ancestors have a 'when' condition or 'if-feature'
        expression that evaluates to 'false'.";
   }
-  
+
   identity unknown-element {
     base error-tag;
     description
@@ -1670,7 +1658,7 @@ module ietf-comi {
        evaluated to 'false' or to a 'when' condition evaluated
        to 'false'.";
   }
-  
+
   identity bad-element {
     base error-tag;
     description
@@ -1684,14 +1672,14 @@ module ietf-comi {
       "Returned by the CoMI server when a data node required to
        accept the request is not present.";
   }
-  
+
   identity error {
     base error-tag;
     description
       "Returned by the CoMI server when an unspecified error has
       occurred.";
   }
-  
+
   identity error-app-tag {
     description
       "Base identity for error-app-tag.";
@@ -1805,10 +1793,10 @@ module ietf-comi {
       "Returned by the CoMI server when no nodes exist in a
        mandatory choice.";
   }
-        
+
   container error {
     presence "Error paylaod";
-    
+
     description
       "Optional payload of a 4.00 Bad Request CoAP error.";
 
@@ -2301,5 +2289,3 @@ module IP-MIB {
 }  // module IP-MIB
 ~~~~
 {: artwork-align="left"}
-
-
