@@ -11,21 +11,29 @@ abbrev: LWM2M TS
 area: Applications
 wg: OMA
 author:
-- ins: J Jimenez
+- ins: J. Jimenez
   role: editor
   name: Jaime Jimenez
   org: Ericsson
   street: My Great Street
   city: Madrid
   region: Spain
-- ins: P. van der Stok
-  role: editor
-  name: Peter van der Stok
-  org: consultant
-  abbrev: consultant
-  phone: "+31-492474673 (Netherlands), +33-966015248 (France)"
-  email: consultancy@vanderstok.org
-  uri: www.vanderstok.org
+- ins: A. One
+  role: author
+  name: Author One
+  org: Company
+  email: author@company.org
+- ins: A. Two
+  role: author
+  name: Author Two
+  org: Company
+  email: author@company.org
+- ins: A. Three
+  role: author
+  name: Author Three
+  org: Company
+  email: author@company.org
+
 normative:
   RFC2119:
   RFC4648:
