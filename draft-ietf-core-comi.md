@@ -35,6 +35,7 @@ normative:
   RFC2119:
   RFC4648:
   RFC5277:
+  RFC5246:
   RFC6243:
   RFC7049:
   RFC7252:
@@ -1328,7 +1329,7 @@ RES:  4.00 Bad Request (Content-Format :application/yang-value+cbor)
 {: artwork-align="left"}
 
 
-# Security Considerations
+# Security Considerations {#security-considerations}
 
 For secure network management, it is important to restrict access to configuration variables
 only to authorized parties. LwM2M re-uses the security mechanisms already available to CoAP,
@@ -1351,7 +1352,45 @@ The LwM2M protocol specifies that authorization of LwM2M Servers to access Objec
 
 ## DTLS Security
 
-blablabla
+**Requirements**
+
+For authentication of communicating LwM2M entities, the LwM2M protocol requires that all communication between LwM2M Clients and LwM2M Servers as well as LwM2M Clients and LwM2M Bootstrap-Servers are authenticated using mutual authentication. This means that a:
+
+* LwM2M Client MUST authenticate a LwM2M Server prior to exchange of any information.
+
+* LwM2M Server MUST authenticate a LwM2M Client prior to exchange of any information.
+
+* LwM2M Client MUST authenticate a LwM2M Bootstrap-Server prior to exchange of any information.
+
+* LwM2M Bootstrap-Server MUST authenticate a LwM2M Client prior to exchange of any information.
+
+For confidentiality and data integrity of information between communicating LwM2M entities, the LwM2M protocol requires that all communication between LwM2M Clients and LwM2M Servers as well as LwM2M Clients and LwM2M Bootstrap-Servers are encrypted and integrity protected. This means that a:
+
+* LwM2M Client MUST encrypt and integrity protect data communicated to a LwM2M Server.
+
+* LwM2M Server MUST encrypt and integrity protect data communicated to a LwM2M Client.
+
+* LwM2M Client MUST encrypt and integrity protect data communicated to a LwM2M Bootstrap-Server.
+
+* LwM2M Bootstrap-Server MUST encrypt and integrity protect data communicated to a LwM2M Client.
+
+Due the sensitive nature of bootstrap information, a particular care has to be taken to ensure protection of that data.
+
+The use of DTLS fulfils these requirements.
+
+###DTLS Overview
+
+CoAP {{RFC7252}} is secured using the Datagram Transport Layer Security (DTLS) 1.2 protocol {{RFC6347}}, which is based on TLS v1.2 {{RFC5246}}. The DTLS binding for CoAP is defined in Section 9 of {{RFC7252}}. DTLS is a communication security solution for datagram based protocols (such as UDP). It provides a secure handshake with session key generation, mutual authentication, data integrity and confidentiality.
+
+This section provides information related to the use of DTLS for use with CoAP over DTLS over UDP as well as for use with CoAP over DTLS over SMS. Section "SMS Channel Security" provides additional information regarding the use of DTLS in an SMS context. This document uses the profiles defined in {{RFC7925}}, which includes not only ciphersuites but also extensions.
+
+The DTLS client and the DTLS server SHOULD keep security state, such as session keys, sequence numbers, and initialization vectors, and other security parameters, established with DTLS for as long a period as can be safely achieved without risking compromise to the security context. If such state persists across sleep cycles where the RAM is powered off, secure storage SHOULD be used for the security context.
+
+The credentials used for authenticating the DTLS client and the DTLS server to secure the communication between the LwM2M Client and the LwM2M Server are obtained using one of the bootstrap modes defined in Section 5.2.2. Appendix E.1.1 of (TODO add Link to LWM2M-CORE) defines the format of the keying material stored in the LwM2M Security Object Instances.
+
+LwM2M Bootstrap-Servers, LwM2M Servers and LwM2M Clients MUST use different key pairs. LwM2M Clients MUST use keys, which are unique to each LwM2M Client. When a LwM2M Client is configured to utilize multiple LwM2M Servers then the LwM2M Bootstrap-Server may configure different credentials with these LwM2Ms Servers. Such configuration provides better unlinkability properties since each individual LwM2M Server cannot correlate request based on the credentials used by the LwM2M Client. Deployment and application specific considerations dictate what approach to use.
+
+**DTLS Overview**
 
 # IANA Considerations
 
