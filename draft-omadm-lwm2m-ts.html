@@ -607,7 +607,13 @@ address {
 </pre>
 <p class="figure">Figure 2</p>
 <p id="rfc.section.4.2.2.p.5">When using the Device Management &amp; Service Enablement Interface and the Information Reporting Interface, the LwM2M Server MUST prepend the OMA LwM2M link to the path in the CoAP messages. Example: &#8220;GET /lwm2m/3/0/0.&#8221;</p>
-<p id="rfc.section.4.2.2.p.6"><a name="sampletext2"></a>When using the Bootstrap Interface, the LwM2M Bootstrap-Server MUST use CoAP paths only in the form: ~~~~ /{Object ID}/{Object Instance ID}/{Resource ID} ~~~~</p>
+<p id="rfc.section.4.2.2.p.6">When using the Bootstrap Interface, the LwM2M Bootstrap-Server MUST use CoAP paths only in the form:</p>
+<div id="rfc.figure.3"></div>
+<div id="sampletext2"></div>
+<pre>
+/{Object ID}/{Object Instance ID}/{Resource ID}
+</pre>
+<p class="figure">Figure 3</p>
 <p id="rfc.section.4.2.2.p.7">It is the responsibility of the LwM2M Client to map these paths to its alternate path.</p>
 <p id="rfc.section.4.2.2.p.8">The Resource Type value &#8220;oma.lwm2m&#8221; is part of IANA registry.</p>
 <p id="rfc.section.4.2.2.p.9">TODO Continue from Bootstrap Interface</p>
@@ -710,7 +716,7 @@ address {
 </tbody>
 </table>
 <p id="rfc.section.4.7.p.4">Table 1 example: Raw</p>
-<div id="rfc.figure.3"></div>
+<div id="rfc.figure.4"></div>
 <div id="sampletable"></div>
 <pre>
 +--------------------------------------------------------------------------------+
@@ -735,9 +741,9 @@ address {
 |             | 4.04 Not Acceptable| Inconsistent loaded configuration           |
 +--------------------------------------------------------------------------------+
 </pre>
-<p class="figure">Figure 3: Sample Table</p>
+<p class="figure">Figure 4: Sample Table</p>
 <p id="rfc.section.4.7.p.5">Table 1 example Object:</p>
-<div id="rfc.figure.4"></div>
+<div id="rfc.figure.5"></div>
 <div id="sampletable2"></div>
 <pre>
  OID: 3304
@@ -751,7 +757,7 @@ address {
  +--ro 5604?    Max_Range_Value?        decimal64
  +---x 5605?    Reset_Min_and_Max_measured_values
 </pre>
-<p class="figure">Figure 4</p>
+<p class="figure">Figure 5</p>
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#security-considerations" id="security-considerations">Security Considerations</a>
 </h1>
@@ -960,8 +966,8 @@ address {
 <p id="rfc.section.5.2.3.p.2">In LwM2M Enabler 1.0 if the SMS channel end-point is on the Device, the Channel security for [CoAP] is based on the Datagram Transport Layer Security (DTLS) <a href="#RFC6347" class="xref">[RFC6347]</a>. For that reason the main lines of Section 7.1 on &#8220;DTLS-based Security&#8221; relative to DTLS binding on CoAP are also applicable to that section.</p>
 <p id="rfc.section.5.2.3.p.3">Appendix A of <a href="#RFC7925" class="xref">[RFC7925]</a> describes how to bind CoAP/DTLS message to the SMS channel and specifies the restrictions on DTLS for fitting the SMS channel specific functioning and narrow bandwidth.</p>
 <p><strong>Header Definitions (for one SMS)</strong></p>
-<p id="rfc.section.5.2.3.p.5">a) SMS Frame for basic Request/Response Interaction message (no Token field required) <a href="#smsframe" class="xref">Figure 5</a>.</p>
-<div id="rfc.figure.5"></div>
+<p id="rfc.section.5.2.3.p.5">a) SMS Frame for basic Request/Response Interaction message (no Token field required) <a href="#smsframe" class="xref">Figure 6</a>.</p>
+<div id="rfc.figure.6"></div>
 <div id="smsframe"></div>
 <pre>
 +-------------------------------------------------------------------------------------+
@@ -974,7 +980,7 @@ address {
 |                                 | CoAP ( 4 bytes)  | Effective Payload ( 107 bytes) |
 +---------------------------------+---------------------------------------------------+
 </pre>
-<p class="figure">Figure 5: Basic SMS Frame</p>
+<p class="figure">Figure 6: Basic SMS Frame</p>
 <p id="rfc.section.5.2.3.p.6">Model calculation using these header definitions, overall TPDU : 140 bytes</p>
 <p></p>
 
@@ -983,8 +989,8 @@ address {
 <li>CoAP header of variable length with at least 4 bytes <a href="#RFC7252" class="xref">[RFC7252]</a>.</li>
 <li>Available bytes for the effective LwM2M payload from one SMS: 107 bytes.</li>
 </ul>
-<p id="rfc.section.5.2.3.p.8">b) SMS Frame for messages of the Information Reporting Interface (Token field required) <a href="#smsframe2" class="xref">Figure 6</a>.</p>
-<div id="rfc.figure.6"></div>
+<p id="rfc.section.5.2.3.p.8">b) SMS Frame for messages of the Information Reporting Interface (Token field required) <a href="#smsframe2" class="xref">Figure 7</a>.</p>
+<div id="rfc.figure.7"></div>
 <div id="smsframe2"></div>
 <pre>
 +-------------------------------------------------------------------------------------+
@@ -997,7 +1003,7 @@ address {
 |                                 | CoAP ( 4+8 bytes) | Effective Payload ( 99 bytes) |
 +---------------------------------+---------------------------------------------------+
 </pre>
-<p class="figure">Figure 6: SMS Frame for Information Reporting Interface</p>
+<p class="figure">Figure 7: SMS Frame for Information Reporting Interface</p>
 <p id="rfc.section.5.2.3.p.9">Model calculation using these header definitions,</p>
 <p></p>
 
@@ -1023,7 +1029,7 @@ address {
 <p id="rfc.section.5.2.4.p.7">If decryption and integrity verification succeed, the message contained in the SMS MUST be provided to the LwM2M Client.</p>
 <p id="rfc.section.5.2.4.p.8">If decryption or integrity verification failed, SMS MUST be discarded.</p>
 <p id="rfc.section.5.2.4.p.9">The mechanism for providing the decrypted CoAP Request to the LwM2M Client relies on basic GET_DATA commands of (TODO GP SCP03) .This data MUST follow the format as below:</p>
-<div id="rfc.figure.7"></div>
+<div id="rfc.figure.8"></div>
 <div id="sampledata"></div>
 <pre>
   data_rcv _ ::= &lt;address&gt; &lt;coap_msg&gt;
@@ -1036,7 +1042,7 @@ address {
 
   coap_request ::= CoAP message payload
 </pre>
-<p class="figure">Figure 7</p>
+<p class="figure">Figure 8</p>
 <p id="rfc.section.5.2.4.p.10">NOTE: In current LwM2M release, the way the LwM2M Client Application is triggered for retrieving the available message from the Smartcard is device specific: i.e. a middle class LwM2M Device implementing (TODO ETSI TS 102 223) ToolKit with class &#8220;e&#8221; and &#8220;k&#8221; support could be automatically triggered by Toolkit mechanisms, whereas a simpler LwM2M device could rely on a polling mechanisms on Smartcard for fetching data when available.</p>
 <p><strong>Secured SMS Transfer to LwM2M Server</strong></p>
 <p id="rfc.section.5.2.4.p.12">For sending a CoAP message to the LwM2M Server, the LwM2M Client prepares a data containing the right TP-DA to use, concatenated with the CoAP message and MUST provide that data to the LwM2M UICC Application in using the [GP SCP03] STORE-DATA command.</p>

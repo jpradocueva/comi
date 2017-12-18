@@ -117,7 +117,7 @@ Internet-Draft                  LWM2M TS                   December 2017
      4.3.  Bootstrap Interface . . . . . . . . . . . . . . . . . . .   9
      4.4.  Registration Interface  . . . . . . . . . . . . . . . . .   9
      4.5.  Device Management and Service Enablement Interface  . . .   9
-     4.6.  Information Reporting Interface . . . . . . . . . . . . .   9
+     4.6.  Information Reporting Interface . . . . . . . . . . . . .  10
        4.6.1.  Queue Mode Operation  . . . . . . . . . . . . . . . .  10
        4.6.2.  Update Trigger Mechanism  . . . . . . . . . . . . . .  10
      4.7.  Response Codes  . . . . . . . . . . . . . . . . . . . . .  10
@@ -476,8 +476,11 @@ Internet-Draft                  LWM2M TS                   December 2017
    /lwm2m/3/0/0."
 
    When using the Bootstrap Interface, the LwM2M Bootstrap-Server MUST
-   use CoAP paths only in the form: ~~~~ /{Object ID}/{Object Instance
-   ID}/{Resource ID} ~~~~
+   use CoAP paths only in the form:
+
+   /{Object ID}/{Object Instance ID}/{Resource ID}
+
+                                 Figure 3
 
    It is the responsibility of the LwM2M Client to map these paths to
    its alternate path.
@@ -492,9 +495,6 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 4.5.  Device Management and Service Enablement Interface
 
-4.6.  Information Reporting Interface
-
-
 
 
 
@@ -505,6 +505,8 @@ Jimenez, et al.           Expires June 21, 2018                 [Page 9]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
+
+4.6.  Information Reporting Interface
 
 4.6.1.  Queue Mode Operation
 
@@ -519,8 +521,6 @@ Internet-Draft                  LWM2M TS                   December 2017
    The different Content-formats usage is summarized in the table below:
 
    Table 1 example: Formatted
-
-
 
 
 
@@ -640,7 +640,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 |             | 4.04 Not Acceptable| Inconsistent loaded configuration           |
 +--------------------------------------------------------------------------------+
 
-                          Figure 3: Sample Table
+                          Figure 4: Sample Table
 
    Table 1 example Object:
 
@@ -655,7 +655,7 @@ Internet-Draft                  LWM2M TS                   December 2017
     +--ro 5604?    Max_Range_Value?        decimal64
     +---x 5605?    Reset_Min_and_Max_measured_values
 
-                                 Figure 4
+                                 Figure 5
 
 5.  Security Considerations
 
@@ -1353,7 +1353,7 @@ Internet-Draft                  LWM2M TS                   December 2017
    *Header Definitions (for one SMS)*
 
    a) SMS Frame for basic Request/Response Interaction message (no Token
-   field required) Figure 5.
+   field required) Figure 6.
 
 +-------------------------------------------------------------------------------------+
 |                              TPDU (140 bytes)                                       |
@@ -1365,7 +1365,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 |                                 | CoAP ( 4 bytes)  | Effective Payload ( 107 bytes) |
 +---------------------------------+---------------------------------------------------+
 
-                         Figure 5: Basic SMS Frame
+                         Figure 6: Basic SMS Frame
 
    Model calculation using these header definitions, overall TPDU : 140
    bytes
@@ -1382,7 +1382,7 @@ Internet-Draft                  LWM2M TS                   December 2017
       bytes.
 
    b) SMS Frame for messages of the Information Reporting Interface
-   (Token field required) Figure 6.
+   (Token field required) Figure 7.
 
 
 
@@ -1412,7 +1412,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 |                                 | CoAP ( 4+8 bytes) | Effective Payload ( 99 bytes) |
 +---------------------------------+---------------------------------------------------+
 
-          Figure 6: SMS Frame for Information Reporting Interface
+          Figure 7: SMS Frame for Information Reporting Interface
 
    Model calculation using these header definitions,
 
@@ -1481,7 +1481,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
      coap_request ::= CoAP message payload
 
-                                 Figure 7
+                                 Figure 8
 
    NOTE: In current LwM2M release, the way the LwM2M Client Application
    is triggered for retrieving the available message from the Smartcard
