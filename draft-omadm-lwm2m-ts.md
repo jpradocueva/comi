@@ -229,6 +229,7 @@ For instance, the Example Client from Appendix F may place Objects under the “
 When using the Device Management & Service Enablement Interface and the Information Reporting Interface, the LwM2M Server MUST prepend the OMA LwM2M link to the path in the CoAP messages. Example: "GET /lwm2m/3/0/0."
 
 When using the Bootstrap Interface, the LwM2M Bootstrap-Server MUST use CoAP paths only in the form:
+
 ~~~~
 /{Object ID}/{Object Instance ID}/{Resource ID}
 ~~~~
