@@ -34,16 +34,13 @@ author:
 normative:
   RFC2119:
   RFC4648:
-  RFC5277:
   RFC5246:
-  RFC6243:
   RFC7049:
   RFC7252:
-  RFC7950:
   RFC7959:
   RFC7641:
   RFC8132:
-  RFC8040:
+  RFC6690:
 
 informative:
   RFC6655:
@@ -55,11 +52,8 @@ informative:
   RFC4279:
   RFC4293:
   RFC6347:
-  RFC6690:
   RFC7159:
-  RFC7223:
   RFC7925:
-  RFC7317:
   I-D.ietf-core-interfaces:
   XML:
     title: Extensible Markup Language (XML)
