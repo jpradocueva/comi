@@ -18,16 +18,16 @@ author:
   street: My Great Street
   city: Madrid
   region: Spain
-- ins: A. One
-  name: Author One
+- ins: A. Autor
+  name: Author Autor
   org: Company
   email: author@company.org
-- ins: A. Two
-  name: Author Two
+- ins: A. Dos
+  name: Author Dos
   org: Company
   email: author@company.org
-- ins: A. Three
-  name: Author Three
+- ins: A. Tercero
+  name: Author Tercero
   org: Company
   email: author@company.org
 
