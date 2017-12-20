@@ -4,11 +4,11 @@
 
 OMA                                                      J. Jimenez, Ed.
 Internet-Draft                                                  Ericsson
-Intended status: Standards Track                                  A. One
-Expires: June 21, 2018                                            A. Two
-                                                                A. Three
+Intended status: Standards Track                                A. Autor
+Expires: June 23, 2018                                            A. Dos
+                                                              A. Tercero
                                                                  Company
-                                                       December 18, 2017
+                                                       December 20, 2017
 
 
    Lightweight Machine to Machine Technical Specification - Transport
@@ -53,7 +53,7 @@ Abstract
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 1]
+Jimenez, et al.           Expires June 23, 2018                 [Page 1]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -78,7 +78,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on June 21, 2018.
+   This Internet-Draft will expire on June 23, 2018.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 2]
+Jimenez, et al.           Expires June 23, 2018                 [Page 2]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -165,7 +165,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 3]
+Jimenez, et al.           Expires June 23, 2018                 [Page 3]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -221,7 +221,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 4]
+Jimenez, et al.           Expires June 23, 2018                 [Page 4]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -277,7 +277,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 5]
+Jimenez, et al.           Expires June 23, 2018                 [Page 5]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -333,7 +333,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 6]
+Jimenez, et al.           Expires June 23, 2018                 [Page 6]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -389,7 +389,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 7]
+Jimenez, et al.           Expires June 23, 2018                 [Page 7]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -445,7 +445,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 8]
+Jimenez, et al.           Expires June 23, 2018                 [Page 8]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -501,7 +501,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                 [Page 9]
+Jimenez, et al.           Expires June 23, 2018                 [Page 9]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -557,7 +557,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 10]
+Jimenez, et al.           Expires June 23, 2018                [Page 10]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -613,7 +613,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 11]
+Jimenez, et al.           Expires June 23, 2018                [Page 11]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -669,7 +669,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 12]
+Jimenez, et al.           Expires June 23, 2018                [Page 12]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -725,7 +725,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 13]
+Jimenez, et al.           Expires June 23, 2018                [Page 13]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -781,7 +781,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 14]
+Jimenez, et al.           Expires June 23, 2018                [Page 14]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -837,7 +837,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 15]
+Jimenez, et al.           Expires June 23, 2018                [Page 15]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -893,7 +893,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 16]
+Jimenez, et al.           Expires June 23, 2018                [Page 16]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -949,7 +949,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 17]
+Jimenez, et al.           Expires June 23, 2018                [Page 17]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1005,7 +1005,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 18]
+Jimenez, et al.           Expires June 23, 2018                [Page 18]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1061,7 +1061,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 19]
+Jimenez, et al.           Expires June 23, 2018                [Page 19]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1117,7 +1117,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 20]
+Jimenez, et al.           Expires June 23, 2018                [Page 20]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1173,7 +1173,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 21]
+Jimenez, et al.           Expires June 23, 2018                [Page 21]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1229,7 +1229,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 22]
+Jimenez, et al.           Expires June 23, 2018                [Page 22]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1285,7 +1285,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 23]
+Jimenez, et al.           Expires June 23, 2018                [Page 23]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1341,7 +1341,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 24]
+Jimenez, et al.           Expires June 23, 2018                [Page 24]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1397,7 +1397,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 25]
+Jimenez, et al.           Expires June 23, 2018                [Page 25]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1453,7 +1453,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 26]
+Jimenez, et al.           Expires June 23, 2018                [Page 26]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1509,7 +1509,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 27]
+Jimenez, et al.           Expires June 23, 2018                [Page 27]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1565,7 +1565,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 28]
+Jimenez, et al.           Expires June 23, 2018                [Page 28]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1621,7 +1621,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 29]
+Jimenez, et al.           Expires June 23, 2018                [Page 29]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1677,7 +1677,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 30]
+Jimenez, et al.           Expires June 23, 2018                [Page 30]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1733,7 +1733,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 31]
+Jimenez, et al.           Expires June 23, 2018                [Page 31]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1789,7 +1789,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 32]
+Jimenez, et al.           Expires June 23, 2018                [Page 32]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1845,7 +1845,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 33]
+Jimenez, et al.           Expires June 23, 2018                [Page 33]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1901,7 +1901,7 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 34]
+Jimenez, et al.           Expires June 23, 2018                [Page 34]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
@@ -1941,13 +1941,13 @@ Authors' Addresses
    Madrid, Spain
 
 
-   Author One
+   Author Autor
    Company
 
    Email: author@company.org
 
 
-   Author Two
+   Author Dos
    Company
 
    Email: author@company.org
@@ -1957,12 +1957,12 @@ Authors' Addresses
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 35]
+Jimenez, et al.           Expires June 23, 2018                [Page 35]
 
 Internet-Draft                  LWM2M TS                   December 2017
 
 
-   Author Three
+   Author Tercero
    Company
 
    Email: author@company.org
@@ -2013,4 +2013,4 @@ Internet-Draft                  LWM2M TS                   December 2017
 
 
 
-Jimenez, et al.           Expires June 21, 2018                [Page 36]
+Jimenez, et al.           Expires June 23, 2018                [Page 36]
